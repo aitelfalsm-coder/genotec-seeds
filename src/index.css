@@ -1,0 +1,75 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #111827;
+  background: #FAFAF7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+[dir="rtl"] {
+  font-family: 'Tahoma', 'Arial Unicode MS', system-ui, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid #1B4332;
+  outline-offset: 3px;
+}
+
+/* Tap highlight */
+a, button {
+  -webkit-tap-highlight-color: rgba(27,67,50,0.08);
+}
+
+/* Responsive nav visibility */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-toggle {
+    display: flex !important;
+  }
+}
+
+/* Bounce animation for scroll indicator */
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* RTL adjustments */
+[dir="rtl"] .desktop-nav {
+  flex-direction: row-reverse;
+}
+
+/* Prevent horizontal scroll on mobile */
+section, header, footer {
+  max-width: 100vw;
+}
+
+/* Mobile padding normalization */
+@media (max-width: 480px) {
+  h1, h2 {
+    word-break: break-word;
+  }
+}

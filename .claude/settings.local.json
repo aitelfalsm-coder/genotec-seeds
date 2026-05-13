@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node -e ' *)",
+      "Bash(vercel *)",
+      "Bash(npx vite *)",
+      "Bash(ipconfig)",
+      "Bash(findstr \"IPv4\")",
+      "Bash(Copy-Item *)",
+      "PowerShell(Copy-Item *)",
+      "Bash(start *)",
+      "WebSearch",
+      "WebFetch(domain:unsplash.com)",
+      "WebFetch(domain:images.unsplash.com)",
+      "Bash(node -e \"const p = require\\('./node_modules/lucide-react/package.json'\\); console.log\\(p.version\\)\")",
+      "PowerShell(Get-Content *)",
+      "PowerShell(Get-ChildItem *)",
+      "Read(//c/Users/hp/.local/share/com.vercel.cli/**)",
+      "Read(//c/Users/hp/.config/vercel/**)",
+      "Read(//c/Users/hp/**)",
+      "Bash(npx vite-bundle-visualizer *)",
+      "Bash(npx rollup-plugin-visualizer *)",
+      "Bash(dir public *)",
+      "Bash(gh --version)",
+      "Bash(gh auth *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git config *)"
+    ]
+  }
+}
