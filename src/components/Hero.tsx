@@ -90,8 +90,8 @@ export default function Hero({ lang }: HeroProps) {
           to   { opacity: 1; transform: translateY(0); }
         }
         @keyframes badgePulse {
-          0%,100% { box-shadow: 0 0 0 0 rgba(201,169,110,0.45); }
-          50%     { box-shadow: 0 0 0 8px rgba(201,169,110,0); }
+          0%,100% { box-shadow: 0 0 0 0 rgba(107,191,74,0.45); }
+          50%     { box-shadow: 0 0 0 8px rgba(107,191,74,0); }
         }
         @keyframes marqueeScroll {
           from { transform: translateX(0); }
@@ -108,6 +108,10 @@ export default function Hero({ lang }: HeroProps) {
         @keyframes floatCard {
           0%, 100% { transform: translateY(0px); }
           50%      { transform: translateY(-6px); }
+        }
+        @keyframes shimmerLine {
+          0%   { transform: translateX(-100%); }
+          100% { transform: translateX(100%); }
         }
 
         .slide-img {
@@ -128,8 +132,8 @@ export default function Hero({ lang }: HeroProps) {
           transition: all .22s; z-index: 10; line-height: 1;
         }
         .hero-arrow:hover {
-          background: rgba(201,169,110,0.25);
-          border-color: rgba(201,169,110,0.55);
+          background: rgba(107,191,74,0.22);
+          border-color: rgba(107,191,74,0.55);
           box-shadow: 0 8px 26px rgba(0,0,0,0.35);
           transform: translateY(-50%) scale(1.07);
         }
@@ -140,7 +144,7 @@ export default function Hero({ lang }: HeroProps) {
         .hero-stat-item {
           transition: background .22s; cursor: default;
         }
-        .hero-stat-item:hover { background: rgba(255,255,255,0.04); }
+        .hero-stat-item:hover { background: rgba(107,191,74,0.04); }
         .hero-deco-circle { display: block; }
         .slide-dot-btn {
           border: none; cursor: pointer; padding: 4px 2px;
@@ -153,16 +157,24 @@ export default function Hero({ lang }: HeroProps) {
         }
         .hero-cta-primary {
           display: inline-flex; align-items: center; gap: 10px;
-          background: linear-gradient(135deg,#C9A96E,#B8935A);
-          color: #0F2D1E; font-weight: 800; font-size: 14px;
+          background: linear-gradient(135deg, #6BBF4A, #4DA832);
+          color: #0A1F14; font-weight: 800; font-size: 14px;
           padding: 14px 30px; border-radius: 999px;
           text-decoration: none; letter-spacing: 0.02em;
-          box-shadow: 0 8px 32px rgba(201,169,110,0.44);
+          box-shadow: 0 8px 32px rgba(107,191,74,0.45);
           transition: all .25s; min-height: 50px;
+          position: relative; overflow: hidden;
         }
+        .hero-cta-primary::after {
+          content: ''; position: absolute; inset: 0;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+          transform: translateX(-100%);
+          transition: transform .4s ease;
+        }
+        .hero-cta-primary:hover::after { transform: translateX(100%); }
         .hero-cta-primary:hover {
           transform: translateY(-3px);
-          box-shadow: 0 18px 44px rgba(201,169,110,0.58);
+          box-shadow: 0 18px 44px rgba(107,191,74,0.55);
         }
         .hero-cta-secondary {
           display: inline-flex; align-items: center; gap: 10px;
@@ -175,8 +187,8 @@ export default function Hero({ lang }: HeroProps) {
           text-decoration: none; transition: all .25s; min-height: 50px;
         }
         .hero-cta-secondary:hover {
-          background: rgba(255,255,255,0.14);
-          border-color: rgba(255,255,255,0.3);
+          background: rgba(107,191,74,0.1);
+          border-color: rgba(107,191,74,0.35);
         }
 
         .hero-float-card { display: flex; }
@@ -211,7 +223,7 @@ export default function Hero({ lang }: HeroProps) {
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
-          background: 'linear-gradient(155deg, #071610 0%, #0F2D1E 38%, #1B4332 68%, #0F2D1E 100%)',
+          background: 'linear-gradient(155deg, #071610 0%, #0D2518 38%, #163825 68%, #0D2518 100%)',
           position: 'relative',
           overflow: 'hidden',
           paddingTop: 68,
@@ -221,28 +233,28 @@ export default function Hero({ lang }: HeroProps) {
         <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }}>
           <div style={{
             position: 'absolute', inset: 0,
-            backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px)',
-            backgroundSize: '32px 32px',
+            backgroundImage: 'radial-gradient(circle, rgba(107,191,74,0.055) 1px, transparent 1px)',
+            backgroundSize: '34px 34px',
           }} />
           <div style={{
             position: 'absolute', top: 0, right: 0, width: '55%', height: '70%',
-            background: 'radial-gradient(ellipse at 85% 5%, rgba(201,169,110,0.11) 0%, transparent 65%)',
+            background: 'radial-gradient(ellipse at 85% 5%, rgba(107,191,74,0.1) 0%, transparent 65%)',
             animation: 'glowOrb 5s ease-in-out infinite',
           }} />
           <div style={{
             position: 'absolute', bottom: 0, left: 0, width: '45%', height: '55%',
-            background: 'radial-gradient(ellipse at 15% 95%, rgba(61,122,90,0.12) 0%, transparent 65%)',
+            background: 'radial-gradient(ellipse at 15% 95%, rgba(27,107,92,0.14) 0%, transparent 65%)',
             animation: 'glowOrb 4s ease-in-out 1.5s infinite',
           }} />
           <div className="hero-deco-circle" style={{
             position: 'absolute', top: '-22%', right: '-9%',
             width: 700, height: 700, borderRadius: '50%',
-            border: '1px solid rgba(255,255,255,0.03)',
+            border: '1px solid rgba(107,191,74,0.04)',
           }} />
           <div className="hero-deco-circle" style={{
             position: 'absolute', top: '-10%', right: '-3%',
             width: 420, height: 420, borderRadius: '50%',
-            border: '1px solid rgba(201,169,110,0.06)',
+            border: '1px solid rgba(107,191,74,0.08)',
           }} />
         </div>
 
@@ -264,54 +276,57 @@ export default function Hero({ lang }: HeroProps) {
             {/* Badge */}
             <div className="hero-badge" style={{
               display: 'inline-flex', alignItems: 'center', gap: 9,
-              background: 'rgba(201,169,110,0.12)',
-              border: '1px solid rgba(201,169,110,0.35)',
-              color: '#C9A96E', fontSize: 11, fontWeight: 700,
+              background: 'rgba(107,191,74,0.1)',
+              border: '1px solid rgba(107,191,74,0.32)',
+              color: '#6BBF4A', fontSize: 11, fontWeight: 700,
               letterSpacing: '0.16em', textTransform: 'uppercase',
               borderRadius: 999, padding: '8px 18px', marginBottom: 28,
               animation: 'badgePulse 3s ease-in-out infinite',
             }}>
               <span style={{
                 width: 7, height: 7, borderRadius: '50%',
-                background: '#C9A96E',
-                boxShadow: '0 0 10px rgba(201,169,110,0.9)',
+                background: '#6BBF4A',
+                boxShadow: '0 0 10px rgba(107,191,74,0.9)',
                 display: 'inline-block', flexShrink: 0,
               }} />
               {t.badge}
             </div>
 
-            {/* Headline */}
-            <h1 style={{
-              fontSize: 'clamp(2.1rem,4.8vw,4.4rem)',
-              fontWeight: 900, color: '#fff',
-              lineHeight: 1.07, letterSpacing: '-0.03em',
-              margin: '0 0 1.1rem',
-            }}>
-              {t.title}
-              <br />
-              <span style={{
-                background: 'linear-gradient(135deg, #DBC080 0%, #C9A96E 45%, #B8935A 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                filter: 'drop-shadow(0 2px 32px rgba(201,169,110,0.45))',
+            {/* Headline principal */}
+            <div style={{ marginBottom: '1.75rem' }}>
+              <h1 style={{
+                fontSize: 'clamp(2.4rem, 5.5vw, 5rem)',
+                fontWeight: 900,
+                lineHeight: 1.05, letterSpacing: '-0.03em',
+                margin: '0 0 0.5rem',
               }}>
-                {t.titleHighlight}
-              </span>
-            </h1>
-
-            {/* Decorative divider */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: '1.5rem' }}>
-              <div style={{ width: 48, height: 3, borderRadius: 99, background: 'linear-gradient(90deg,#C9A96E,rgba(201,169,110,0))' }} />
-              <div style={{ width: 6, height: 6, borderRadius: '50%', background: 'rgba(201,169,110,0.45)' }} />
-              <div style={{ width: 24, height: 3, borderRadius: 99, background: 'rgba(201,169,110,0.18)' }} />
+                <span style={{ color: '#fff', textShadow: '0 2px 30px rgba(0,0,0,0.4)' }}>GENOTEC </span>
+                <span style={{
+                  color: '#6BBF4A',
+                  filter: 'drop-shadow(0 0 22px rgba(107,191,74,0.55))',
+                }}>SEEDS</span>
+              </h1>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', marginBottom: '0.15rem' }}>
+                <div style={{ height: 2, width: 38, background: 'linear-gradient(90deg, #6BBF4A, transparent)', borderRadius: 99, flexShrink: 0 }} />
+              </div>
+              <p style={{
+                fontSize: 'clamp(1.5rem, 3.5vw, 3.1rem)',
+                fontWeight: 700, fontStyle: 'italic',
+                color: '#8EDB60',
+                letterSpacing: '-0.01em',
+                lineHeight: 1.1,
+                margin: 0,
+                textShadow: '0 0 40px rgba(107,191,74,0.5)',
+              }}>
+                L'art de la sélection
+              </p>
             </div>
 
             {/* Subtitle */}
             <p className="hero-subtitle" style={{
               fontSize: 'clamp(0.88rem,1.7vw,1.05rem)',
-              color: 'rgba(255,255,255,0.6)',
-              lineHeight: 1.9, margin: '0 0 2.2rem', maxWidth: 460,
+              color: 'rgba(255,255,255,0.62)',
+              lineHeight: 1.85, margin: '0 0 2.2rem', maxWidth: 460,
             }}>
               {t.subtitle}
             </p>
@@ -331,12 +346,12 @@ export default function Hero({ lang }: HeroProps) {
               {TRUST[lang].map((item, i) => (
                 <span key={i} className="hero-trust-item" style={{
                   display: 'flex', alignItems: 'center', gap: 6,
-                  color: 'rgba(255,255,255,0.38)', fontSize: 11.5, fontWeight: 600,
+                  color: 'rgba(255,255,255,0.42)', fontSize: 11.5, fontWeight: 600,
                   paddingRight: i < 2 ? '1.1rem' : 0,
-                  borderRight: i < 2 ? '1px solid rgba(255,255,255,0.1)' : 'none',
+                  borderRight: i < 2 ? '1px solid rgba(107,191,74,0.18)' : 'none',
                   marginRight: i < 2 ? '1.1rem' : 0,
                 }}>
-                  <Check size={12} strokeWidth={2.5} style={{ color: '#C9A96E', flexShrink: 0 }} />
+                  <Check size={12} strokeWidth={2.5} style={{ color: '#6BBF4A', flexShrink: 0 }} />
                   {item}
                 </span>
               ))}
@@ -348,7 +363,7 @@ export default function Hero({ lang }: HeroProps) {
                 Scroll
               </span>
               <div className="scroll-indicator">
-                <ChevronDown size={17} strokeWidth={1.5} style={{ color: 'rgba(255,255,255,0.25)', display: 'block' }} />
+                <ChevronDown size={17} strokeWidth={1.5} style={{ color: 'rgba(107,191,74,0.35)', display: 'block' }} />
               </div>
             </div>
           </div>
@@ -362,7 +377,7 @@ export default function Hero({ lang }: HeroProps) {
                 borderRadius: 26,
                 overflow: 'hidden',
                 height: 520,
-                boxShadow: '0 40px 100px rgba(0,0,0,0.58), 0 0 0 1px rgba(201,169,110,0.18)',
+                boxShadow: '0 40px 100px rgba(0,0,0,0.58), 0 0 0 1px rgba(107,191,74,0.22)',
               }}
               onMouseEnter={() => setPaused(true)}
               onMouseLeave={() => setPaused(false)}
@@ -384,46 +399,29 @@ export default function Hero({ lang }: HeroProps) {
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   overflow: 'hidden',
                 }}>
-                  <div style={{
-                    position: 'absolute', inset: 0, pointerEvents: 'none',
-                    backgroundImage: 'radial-gradient(circle, rgba(201,169,110,0.07) 1px, transparent 1px)',
-                    backgroundSize: '22px 22px',
-                  }} />
-                  <div style={{
-                    position: 'absolute', top: '-15%', left: '50%', transform: 'translateX(-50%)',
-                    width: 320, height: 320, borderRadius: '50%',
-                    background: 'radial-gradient(ellipse, rgba(201,169,110,0.15) 0%, transparent 65%)',
-                    pointerEvents: 'none',
-                  }} />
-                  <div style={{ position: 'absolute', zIndex: 0, width: 195, height: 278, background: 'rgba(27,67,50,0.45)', border: '1px solid rgba(201,169,110,0.18)', borderRadius: 18, transform: 'rotate(7deg) translate(28px, 10px)' }} />
-                  <div style={{ position: 'relative', zIndex: 1, width: 195, background: '#0A1F14', border: '1.5px solid rgba(201,169,110,0.6)', borderRadius: 18, overflow: 'hidden', boxShadow: '0 28px 70px rgba(0,0,0,0.7), 0 0 50px rgba(201,169,110,0.13)', transform: 'rotate(-4deg)' }}>
-                    <div style={{ height: 7, background: 'linear-gradient(90deg, #B8935A, #C9A96E, #DBC080, #C9A96E, #B8935A)' }} />
-                    <div style={{ padding: '16px 14px 12px', textAlign: 'center', borderBottom: '1px solid rgba(201,169,110,0.2)', background: 'linear-gradient(170deg, #1B4332 0%, #0F2D1E 100%)' }}>
+                  <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', backgroundImage: 'radial-gradient(circle, rgba(107,191,74,0.06) 1px, transparent 1px)', backgroundSize: '22px 22px' }} />
+                  <div style={{ position: 'absolute', top: '-15%', left: '50%', transform: 'translateX(-50%)', width: 320, height: 320, borderRadius: '50%', background: 'radial-gradient(ellipse, rgba(107,191,74,0.12) 0%, transparent 65%)', pointerEvents: 'none' }} />
+                  <div style={{ position: 'absolute', zIndex: 0, width: 195, height: 278, background: 'rgba(27,107,92,0.35)', border: '1px solid rgba(107,191,74,0.2)', borderRadius: 18, transform: 'rotate(7deg) translate(28px, 10px)' }} />
+                  <div style={{ position: 'relative', zIndex: 1, width: 195, background: '#0A1F14', border: '1.5px solid rgba(107,191,74,0.55)', borderRadius: 18, overflow: 'hidden', boxShadow: '0 28px 70px rgba(0,0,0,0.7)', transform: 'rotate(-4deg)' }}>
+                    <div style={{ height: 7, background: 'linear-gradient(90deg, #4DA832, #6BBF4A, #8EDB60, #6BBF4A, #4DA832)' }} />
+                    <div style={{ padding: '16px 14px 12px', textAlign: 'center', borderBottom: '1px solid rgba(107,191,74,0.2)', background: 'linear-gradient(170deg, #1B4332 0%, #0F2D1E 100%)' }}>
                       <div style={{ display: 'inline-block', background: '#fff', borderRadius: 7, padding: '4px 8px', marginBottom: 9, boxShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
                         <img src="/logo.png" alt="Genotec Seeds" style={{ height: 20, display: 'block', objectFit: 'contain', minWidth: 60 }} />
                       </div>
-                      <div style={{ color: '#C9A96E', fontWeight: 900, fontSize: 12, letterSpacing: '0.22em', textTransform: 'uppercase', textShadow: '0 0 20px rgba(201,169,110,0.5)' }}>GENOTEC SEEDS</div>
+                      <div style={{ color: '#6BBF4A', fontWeight: 900, fontSize: 12, letterSpacing: '0.22em', textTransform: 'uppercase' }}>GENOTEC SEEDS</div>
                       <div style={{ color: 'rgba(255,255,255,0.35)', fontSize: 8, letterSpacing: '0.15em', marginTop: 3, textTransform: 'uppercase' }}>Maroc</div>
                     </div>
                     <div style={{ padding: '16px 14px', textAlign: 'center', background: '#071610' }}>
                       <div style={{ fontSize: 40, lineHeight: 1 }}>🌾</div>
-                      <div style={{ width: 30, height: 2, background: 'rgba(201,169,110,0.4)', margin: '8px auto 10px', borderRadius: 99 }} />
+                      <div style={{ width: 30, height: 2, background: 'rgba(107,191,74,0.4)', margin: '8px auto 10px', borderRadius: 99 }} />
                       <div style={{ color: '#fff', fontWeight: 700, fontSize: 13, letterSpacing: '-0.01em' }}>Semences Certifiées</div>
-                      <div style={{ color: 'rgba(201,169,110,0.65)', fontSize: 9, letterSpacing: '0.12em', marginTop: 4, textTransform: 'uppercase' }}>Légumes & Aromates</div>
-                      <div style={{ display: 'flex', justifyContent: 'center', gap: 5, marginTop: 12 }}>
-                        {['🌿', '🥕', '🍅'].map((e, ei) => <span key={ei} style={{ fontSize: 14 }}>{e}</span>)}
-                      </div>
+                      <div style={{ color: 'rgba(107,191,74,0.7)', fontSize: 9, letterSpacing: '0.12em', marginTop: 4, textTransform: 'uppercase' }}>Légumes & Aromates</div>
                     </div>
-                    <div style={{ padding: '7px 12px', background: 'linear-gradient(90deg, #B8935A, #C9A96E)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <div style={{ padding: '7px 12px', background: 'linear-gradient(90deg, #4DA832, #6BBF4A)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <span style={{ color: '#0A1F14', fontSize: 8, fontWeight: 800, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Qualité Premium</span>
                       <span style={{ color: 'rgba(10,31,20,0.5)' }}>·</span>
                       <span style={{ color: '#0A1F14', fontSize: 8, fontWeight: 800 }}>2025–2026</span>
                     </div>
-                  </div>
-                  <div style={{ position: 'absolute', bottom: 70, left: 0, right: 0, textAlign: 'center' }}>
-                    <span style={{ color: 'rgba(255,255,255,0.28)', fontSize: 9, letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 600 }}>
-                      Votre partenaire semencier de confiance
-                    </span>
                   </div>
                 </div>
               ) : (
@@ -454,15 +452,13 @@ export default function Hero({ lang }: HeroProps) {
               <div style={{
                 position: 'absolute', inset: 0,
                 background: 'linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, transparent 35%, rgba(7,22,16,0.88) 100%)',
-                pointerEvents: 'none',
-                zIndex: 2,
+                pointerEvents: 'none', zIndex: 2,
               }} />
               {/* Side gradients for arrows */}
               <div style={{
                 position: 'absolute', inset: 0,
                 background: 'linear-gradient(to right, rgba(0,0,0,0.28) 0%, transparent 15%, transparent 85%, rgba(0,0,0,0.28) 100%)',
-                pointerEvents: 'none',
-                zIndex: 2,
+                pointerEvents: 'none', zIndex: 2,
               }} />
 
               {/* Top-left: dynamic category badge */}
@@ -472,13 +468,13 @@ export default function Hero({ lang }: HeroProps) {
                 background: 'rgba(7,22,16,0.72)',
                 backdropFilter: 'blur(12px)',
                 WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(201,169,110,0.35)',
+                border: '1px solid rgba(107,191,74,0.32)',
                 borderRadius: 999, padding: '6px 14px',
                 animation: 'badgePulse 3s ease-in-out infinite',
                 transition: 'all .4s ease',
               }}>
-                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#C9A96E', boxShadow: '0 0 6px rgba(201,169,110,0.8)', display: 'inline-block', flexShrink: 0 }} />
-                <span style={{ color: '#C9A96E', fontSize: 10, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
+                <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#6BBF4A', boxShadow: '0 0 6px rgba(107,191,74,0.8)', display: 'inline-block', flexShrink: 0 }} />
+                <span style={{ color: '#6BBF4A', fontSize: 10, fontWeight: 700, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
                   {SLIDES[slide].category}
                 </span>
               </div>
@@ -488,7 +484,7 @@ export default function Hero({ lang }: HeroProps) {
                 position: 'absolute', top: 14, right: 14, zIndex: 5,
                 width: 52, height: 52, borderRadius: '50%',
                 background: '#fff',
-                border: '2px solid rgba(201,169,110,0.6)',
+                border: '2px solid rgba(107,191,74,0.55)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 padding: 6,
                 boxShadow: '0 4px 18px rgba(0,0,0,0.38)',
@@ -512,11 +508,11 @@ export default function Hero({ lang }: HeroProps) {
                   <div>
                     <div style={{
                       display: 'inline-flex', alignItems: 'center', gap: 5,
-                      background: 'rgba(201,169,110,0.2)',
-                      border: '1px solid rgba(201,169,110,0.3)',
+                      background: 'rgba(107,191,74,0.18)',
+                      border: '1px solid rgba(107,191,74,0.28)',
                       borderRadius: 999, padding: '2px 9px', marginBottom: 6,
                     }}>
-                      <span style={{ color: '#C9A96E', fontSize: 9, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase' }}>
+                      <span style={{ color: '#8EDB60', fontSize: 9, fontWeight: 700, letterSpacing: '0.16em', textTransform: 'uppercase' }}>
                         {SLIDES[slide].variety}
                       </span>
                     </div>
@@ -539,7 +535,7 @@ export default function Hero({ lang }: HeroProps) {
                           style={{
                             width: i === slide ? 20 : 5,
                             height: 5,
-                            background: i === slide ? '#C9A96E' : 'rgba(255,255,255,0.28)',
+                            background: i === slide ? '#6BBF4A' : 'rgba(255,255,255,0.28)',
                             opacity: i === slide ? 1 : 0.7,
                           }}
                           aria-label={SLIDES[i].name}
@@ -553,7 +549,7 @@ export default function Hero({ lang }: HeroProps) {
                 <div style={{ height: 2.5, borderRadius: 99, background: 'rgba(255,255,255,0.1)', overflow: 'hidden' }}>
                   <div key={slide} style={{
                     height: '100%', borderRadius: 99,
-                    background: 'linear-gradient(90deg, #C9A96E, #DBC080)',
+                    background: 'linear-gradient(90deg, #6BBF4A, #8EDB60)',
                     animation: 'progressFill 5s linear both',
                   }} />
                 </div>
@@ -577,7 +573,7 @@ export default function Hero({ lang }: HeroProps) {
                 background: 'linear-gradient(135deg, #0F2D1E, #1B4332)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
-                <Users size={18} strokeWidth={2} style={{ color: '#C9A96E' }} />
+                <Users size={18} strokeWidth={2} style={{ color: '#6BBF4A' }} />
               </div>
               <div>
                 <div style={{ fontWeight: 900, fontSize: 22, color: '#111827', lineHeight: 1, letterSpacing: '-0.03em' }}>
@@ -595,7 +591,7 @@ export default function Hero({ lang }: HeroProps) {
               style={{
                 position: 'absolute', bottom: 108, left: -18, zIndex: 20,
                 background: 'linear-gradient(140deg, #0A1F14, #0F2D1E)',
-                border: '1px solid rgba(201,169,110,0.3)',
+                border: '1px solid rgba(107,191,74,0.3)',
                 borderRadius: 18, padding: '12px 16px',
                 boxShadow: '0 16px 44px rgba(0,0,0,0.48)',
                 alignItems: 'center', gap: 12,
@@ -604,11 +600,11 @@ export default function Hero({ lang }: HeroProps) {
             >
               <div style={{
                 width: 42, height: 42, borderRadius: '50%', flexShrink: 0,
-                background: 'rgba(201,169,110,0.13)',
-                border: '1px solid rgba(201,169,110,0.35)',
+                background: 'rgba(107,191,74,0.12)',
+                border: '1px solid rgba(107,191,74,0.32)',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
               }}>
-                <Sprout size={18} strokeWidth={2} style={{ color: '#C9A96E' }} />
+                <Sprout size={18} strokeWidth={2} style={{ color: '#6BBF4A' }} />
               </div>
               <div>
                 <div style={{ fontWeight: 900, fontSize: 22, color: '#fff', lineHeight: 1, letterSpacing: '-0.03em' }}>
@@ -626,9 +622,9 @@ export default function Hero({ lang }: HeroProps) {
         {/* ── Marquee ticker ── */}
         <div style={{
           position: 'relative',
-          background: 'rgba(201,169,110,0.07)',
-          borderTop: '1px solid rgba(201,169,110,0.15)',
-          borderBottom: '1px solid rgba(201,169,110,0.15)',
+          background: 'rgba(107,191,74,0.06)',
+          borderTop: '1px solid rgba(107,191,74,0.14)',
+          borderBottom: '1px solid rgba(107,191,74,0.14)',
           overflow: 'hidden', padding: '11px 0',
         }}>
           <div style={{
@@ -639,14 +635,14 @@ export default function Hero({ lang }: HeroProps) {
             {[...MARQUEE, ...MARQUEE].map((item, i) => (
               <span key={i} style={{
                 flexShrink: 0,
-                color: 'rgba(201,169,110,0.7)', fontSize: 13, fontWeight: 700,
+                color: 'rgba(107,191,74,0.75)', fontSize: 13, fontWeight: 700,
                 letterSpacing: '0.18em', textTransform: 'uppercase',
                 padding: '0 1.6rem',
                 display: 'inline-flex', alignItems: 'center', gap: 8,
                 whiteSpace: 'nowrap',
               }}>
                 {item.n}
-                <span style={{ color: 'rgba(201,169,110,0.22)', fontSize: 7, marginLeft: 8 }}>✦</span>
+                <span style={{ color: 'rgba(107,191,74,0.25)', fontSize: 7, marginLeft: 8 }}>✦</span>
               </span>
             ))}
           </div>
@@ -658,7 +654,7 @@ export default function Hero({ lang }: HeroProps) {
           background: 'rgba(0,0,0,0.32)',
           backdropFilter: 'blur(18px)',
           WebkitBackdropFilter: 'blur(18px)',
-          borderTop: '1px solid rgba(255,255,255,0.055)',
+          borderTop: '1px solid rgba(107,191,74,0.08)',
         }}>
           <div style={{ maxWidth: 1140, margin: '0 auto', padding: '0 1.5rem' }}>
             <div className="hero-stats-grid">
@@ -668,20 +664,20 @@ export default function Hero({ lang }: HeroProps) {
                   <div key={i} className="hero-stat-item" style={{
                     padding: 'clamp(1rem,2.2vw,1.5rem) 1rem',
                     textAlign: 'center',
-                    borderRight: i < 3 ? '1px solid rgba(255,255,255,0.055)' : 'none',
+                    borderRight: i < 3 ? '1px solid rgba(255,255,255,0.05)' : 'none',
                   }}>
                     <div style={{
                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                       width: 34, height: 34, borderRadius: '50%',
-                      background: 'rgba(201,169,110,0.1)',
-                      border: '1px solid rgba(201,169,110,0.22)',
-                      color: '#C9A96E', marginBottom: 8,
+                      background: 'rgba(107,191,74,0.1)',
+                      border: '1px solid rgba(107,191,74,0.22)',
+                      color: '#6BBF4A', marginBottom: 8,
                     }}>
                       <StatIcon size={15} strokeWidth={1.7} />
                     </div>
                     <div style={{
                       fontSize: 'clamp(1.3rem,2.6vw,2.1rem)',
-                      fontWeight: 900, color: '#C9A96E', lineHeight: 1,
+                      fontWeight: 900, color: '#6BBF4A', lineHeight: 1,
                       letterSpacing: '-0.035em',
                     }}>
                       {s.value}

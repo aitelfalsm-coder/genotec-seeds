@@ -9,7 +9,6 @@ const SeedFeatures   = lazy(() => import('./components/SeedFeatures'))
 const About          = lazy(() => import('./components/About'))
 const Contact        = lazy(() => import('./components/Contact'))
 const Footer         = lazy(() => import('./components/Footer'))
-const FloatingWhatsApp = lazy(() => import('./components/FloatingWhatsApp'))
 
 export default function App() {
   const [lang, setLang] = useState<Lang>('fr')
@@ -34,7 +33,6 @@ export default function App() {
       </main>
       <Suspense fallback={null}>
         <Footer lang={lang} />
-        <FloatingWhatsApp lang={lang} />
       </Suspense>
     </>
   )
