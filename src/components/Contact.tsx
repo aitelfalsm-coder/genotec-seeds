@@ -52,7 +52,7 @@ const RESP_ITEMS: Record<Lang, { label: string; time: string; note: string }[]> 
     { label: 'Visit',    time: 'Appt.', note: 'By appointment' },
   ],
 }
-const RESP_COLORS = ['#25D366', '#C9A96E', '#60BFD8']
+const RESP_COLORS = ['#25D366', '#6BBF4A', '#60BFD8']
 
 const REQUEST_TYPES: Record<Lang, string[]> = {
   fr: ['Demande de catalogue', 'Demande de devis', 'Partenariat commercial', 'Information produit', 'Autre demande'],
@@ -195,8 +195,8 @@ export default function Contact({ lang }: ContactProps) {
           cursor: default;
         }
         .resp-card:hover {
-          border-color: rgba(27,67,50,0.18);
-          box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+          border-color: rgba(107,191,74,0.28);
+          box-shadow: 0 6px 24px rgba(107,191,74,0.09);
           transform: translateY(-3px);
         }
 
@@ -209,13 +209,13 @@ export default function Contact({ lang }: ContactProps) {
           border-bottom: 1px solid rgba(255,255,255,0.05);
         }
         .info-row:last-of-type { border-bottom: none; }
-        .info-row:hover { background: rgba(255,255,255,0.07); transform: translateX(2px); }
+        .info-row:hover { background: rgba(107,191,74,0.07); transform: translateX(2px); }
         .info-row-arrow {
           margin-left: auto; color: rgba(255,255,255,0.2);
           transition: color .18s, transform .18s; flex-shrink: 0;
         }
         .info-row:hover .info-row-arrow {
-          color: #C9A96E; transform: translateX(3px);
+          color: #6BBF4A; transform: translateX(3px);
         }
 
         .wa-panel-btn {
@@ -257,7 +257,7 @@ export default function Contact({ lang }: ContactProps) {
         .submit-btn { transition: transform .25s ease, box-shadow .25s ease; }
         .submit-btn:not(:disabled):hover {
           transform: translateY(-2px);
-          box-shadow: 0 18px 44px rgba(201,169,110,0.55) !important;
+          box-shadow: 0 18px 44px rgba(107,191,74,0.52) !important;
         }
 
         @media (max-width: 840px) {
@@ -287,7 +287,7 @@ export default function Contact({ lang }: ContactProps) {
         <div style={{
           position: 'absolute', top: -120, right: -100, width: 520, height: 520,
           borderRadius: '50%',
-          background: 'radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 65%)',
+          background: 'radial-gradient(circle, rgba(107,191,74,0.07) 0%, transparent 65%)',
           pointerEvents: 'none',
         }} />
         <div style={{
@@ -318,11 +318,11 @@ export default function Contact({ lang }: ContactProps) {
               {t.title}
             </h2>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, margin: '0 auto 18px' }}>
-              <div style={{ width: 32, height: 1, background: 'rgba(201,169,110,0.3)' }} />
-              <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#C9A96E' }} />
-              <div style={{ width: 40, height: 3, borderRadius: 99, background: 'linear-gradient(90deg,#C9A96E,#1B4332)' }} />
-              <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#1B4332', opacity: 0.45 }} />
-              <div style={{ width: 32, height: 1, background: 'rgba(27,67,50,0.2)' }} />
+              <div style={{ width: 32, height: 1, background: 'rgba(107,191,74,0.3)' }} />
+              <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#6BBF4A' }} />
+              <div style={{ width: 40, height: 3, borderRadius: 99, background: 'linear-gradient(90deg,#6BBF4A,#1B6B5C)' }} />
+              <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#1B6B5C', opacity: 0.55 }} />
+              <div style={{ width: 32, height: 1, background: 'rgba(27,107,92,0.25)' }} />
             </div>
             <p style={{
               color: '#6B7280', fontSize: 'clamp(14px,1.5vw,16px)',
@@ -381,7 +381,7 @@ export default function Contact({ lang }: ContactProps) {
               <div style={{
                 position: 'absolute', top: '-25%', right: '-20%',
                 width: 340, height: 340, borderRadius: '50%',
-                background: 'radial-gradient(circle, rgba(201,169,110,0.13), transparent 65%)',
+                background: 'radial-gradient(circle, rgba(107,191,74,0.12), transparent 65%)',
                 pointerEvents: 'none',
               }} />
               <div style={{
@@ -421,12 +421,12 @@ export default function Contact({ lang }: ContactProps) {
                   {PANEL_SUB[lang]}
                 </p>
 
-                {/* Gold divider */}
+                {/* Green divider */}
                 <div style={{
                   height: 1,
                   background: isRTL
-                    ? 'linear-gradient(270deg, rgba(201,169,110,0.55), rgba(201,169,110,0.04))'
-                    : 'linear-gradient(90deg, rgba(201,169,110,0.55), rgba(201,169,110,0.04))',
+                    ? 'linear-gradient(270deg, rgba(107,191,74,0.55), rgba(107,191,74,0.04))'
+                    : 'linear-gradient(90deg, rgba(107,191,74,0.55), rgba(107,191,74,0.04))',
                   marginBottom: '1.2rem',
                 }} />
 
@@ -449,11 +449,11 @@ export default function Contact({ lang }: ContactProps) {
                       >
                         <div style={{
                           width: 42, height: 42, flexShrink: 0,
-                          background: 'rgba(201,169,110,0.1)',
-                          border: '1px solid rgba(201,169,110,0.2)',
+                          background: 'rgba(107,191,74,0.1)',
+                          border: '1px solid rgba(107,191,74,0.22)',
                           borderRadius: 12,
                           display: 'flex', alignItems: 'center', justifyContent: 'center',
-                          color: '#C9A96E',
+                          color: '#6BBF4A',
                         }}>
                           <Icon size={18} strokeWidth={1.6} />
                         </div>
@@ -510,12 +510,12 @@ export default function Contact({ lang }: ContactProps) {
                 <div style={{
                   marginTop: '1.1rem',
                   display: 'inline-flex', alignItems: 'center', gap: 8,
-                  background: 'rgba(201,169,110,0.09)',
-                  border: '1px solid rgba(201,169,110,0.2)',
+                  background: 'rgba(107,191,74,0.09)',
+                  border: '1px solid rgba(107,191,74,0.22)',
                   borderRadius: 999, padding: '8px 16px',
                   alignSelf: isRTL ? 'flex-end' : 'flex-start',
                 }}>
-                  <span style={{ color: '#C9A96E', fontSize: 10.5, fontWeight: 700, letterSpacing: '0.05em' }}>
+                  <span style={{ color: '#8EDB60', fontSize: 10.5, fontWeight: 700, letterSpacing: '0.05em' }}>
                     {DISTRIB_LABEL[lang]}
                   </span>
                 </div>
@@ -548,7 +548,7 @@ export default function Contact({ lang }: ContactProps) {
                     width: 40, height: 40, borderRadius: 12,
                     background: 'linear-gradient(135deg, #0F2D1E, #1B4332)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: '#C9A96E', flexShrink: 0,
+                    color: '#6BBF4A', flexShrink: 0,
                   }}>
                     <Send size={17} strokeWidth={1.8} />
                   </div>
@@ -730,15 +730,15 @@ export default function Contact({ lang }: ContactProps) {
                       style={{
                         width: '100%', padding: '15px',
                         background: loading
-                          ? 'rgba(201,169,110,0.3)'
-                          : 'linear-gradient(135deg, #C9A96E, #B8935A)',
-                        color: loading ? 'rgba(15,45,30,0.45)' : '#0F2D1E',
+                          ? 'rgba(107,191,74,0.25)'
+                          : 'linear-gradient(135deg, #6BBF4A, #4DA832)',
+                        color: loading ? 'rgba(10,31,20,0.45)' : '#0A1F14',
                         fontWeight: 800, fontSize: 15,
                         border: 'none', borderRadius: 12,
                         cursor: loading ? 'not-allowed' : 'pointer',
                         fontFamily: 'inherit',
                         display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
-                        boxShadow: loading ? 'none' : '0 8px 28px rgba(201,169,110,0.42)',
+                        boxShadow: loading ? 'none' : '0 8px 28px rgba(107,191,74,0.42)',
                         minHeight: 52, letterSpacing: '0.01em',
                         flexDirection: isRTL ? 'row-reverse' : 'row',
                         position: 'relative', overflow: 'hidden',
