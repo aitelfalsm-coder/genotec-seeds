@@ -25,9 +25,9 @@ const TL_TITLES: Record<Lang, [string, string, string]> = {
 }
 
 const P3: Record<Lang, string> = {
-  fr: 'Notre réseau de distribution couvre les 12 régions du Maroc, garantissant une présence locale et un accompagnement de proximité pour chaque agriculteur partenaire.',
-  ar: 'تغطي شبكة توزيعنا 12 منطقة في المغرب، مما يضمن حضوراً محلياً ومرافقة شخصية لكل فلاح شريك.',
-  en: 'Our distribution network covers all 12 regions of Morocco, ensuring local presence and personalized support for every partner farmer.',
+  fr: 'Nous couvrons les 12 régions du Maroc avec un réseau de distribution solide, garantissant une présence locale forte et un accompagnement de proximité pour chaque agriculteur partenaire.',
+  ar: 'نغطي 12 جهة في المغرب بشبكة توزيع متينة، نضمن من خلالها حضوراً محلياً قوياً ومرافقة عن قرب لكل فلاح شريك.',
+  en: 'We cover all 12 regions of Morocco through a solid distribution network, ensuring strong local presence and close support for every partner farmer.',
 }
 
 const VALS_TITLE: Record<Lang, string> = {

@@ -56,8 +56,8 @@ export const translations = {
       badge: 'Qui sommes-nous',
       title: 'À Propos de GENOTEC SEEDS',
       subtitle: 'Votre partenaire de confiance dans le secteur semencier au Maroc',
-      p1: 'GENOTEC SEEDS est une société marocaine spécialisée dans la commercialisation de semences de qualité supérieure. Nous distribuons nos produits à travers tout le Royaume du Maroc.',
-      p2: "Notre mission est de soutenir les agriculteurs marocains en leur fournissant des semences certifiées, adaptées aux conditions locales, pour garantir des rendements optimaux et une agriculture durable.",
+      p1: 'Enracinés dans la passion du végétal, nous commercialisons depuis plus de 15 ans des semences de qualité supérieure, distribuées dans l\'ensemble du Royaume du Maroc.',
+      p2: 'Nous accompagnons les agriculteurs marocains avec des semences certifiées, sélectionnées pour s\'adapter aux conditions locales et garantir des rendements optimaux saison après saison.',
       values: [
         { icon: '💎', title: 'Qualité', desc: 'Semences certifiées et rigoureusement sélectionnées' },
         { icon: '🔬', title: 'Innovation', desc: 'Variétés adaptées aux défis climatiques actuels' },
@@ -199,8 +199,8 @@ export const translations = {
       badge: 'من نحن',
       title: 'عن جينوتيك سيدز',
       subtitle: 'شريككم الموثوق في قطاع البذور بالمغرب',
-      p1: 'جينوتيك سيدز شركة مغربية متخصصة في تسويق البذور عالية الجودة. توزع منتجاتها في جميع أنحاء المملكة المغربية.',
-      p2: 'مهمتنا هي دعم الفلاحين المغاربة بتزويدهم ببذور معتمدة ومتكيفة مع الظروف المحلية، لضمان إنتاجية مثلى وزراعة مستدامة.',
+      p1: 'متجذرون في شغف الزراعة، نتخصص منذ أكثر من 15 عاماً في تسويق بذور عالية الجودة ونوزعها في جميع أنحاء المملكة المغربية.',
+      p2: 'نرافق الفلاحين المغاربة ببذور معتمدة، مختارة بعناية لتلائم الظروف المحلية وتضمن أفضل إنتاجية موسماً بعد موسم.',
       values: [
         { icon: '💎', title: 'الجودة', desc: 'بذور معتمدة ومنتقاة بعناية' },
         { icon: '🔬', title: 'الابتكار', desc: 'أصناف متكيفة مع تحديات المناخ' },
@@ -342,8 +342,8 @@ export const translations = {
       badge: 'Who we are',
       title: 'About GENOTEC SEEDS',
       subtitle: "Your trusted partner in Morocco's seed industry",
-      p1: 'GENOTEC SEEDS is a Moroccan company specializing in the distribution of premium quality seeds. We distribute our products throughout the Kingdom of Morocco.',
-      p2: 'Our mission is to support Moroccan farmers by providing certified, locally-adapted seeds to ensure optimal yields and sustainable agriculture.',
+      p1: 'Rooted in a passion for growing, we have been distributing premium quality seeds throughout the Kingdom of Morocco for over 15 years.',
+      p2: 'We support Moroccan farmers with certified seeds, carefully selected to suit local conditions and deliver optimal yields season after season.',
       values: [
         { icon: '💎', title: 'Quality', desc: 'Certified and rigorously selected seeds' },
         { icon: '🔬', title: 'Innovation', desc: 'Varieties adapted to climate challenges' },
