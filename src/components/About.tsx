@@ -13,8 +13,8 @@ const VALUE_ACCENTS = ['#C9503A', '#6BBF4A', '#1B6B5C', '#1A4E7A']
 
 const REGIONS = ['Souss-Massa', 'Marrakech', 'Casablanca', 'Rabat', 'Fès', 'Tanger', 'Meknès', 'Oriental', '+4']
 
-const MAIN_PHOTO = 'https://images.unsplash.com/photo-1530451444500-5dce90309851?w=700&h=560&q=87&auto=format&fit=crop'
-const SEC_PHOTO  = 'https://images.unsplash.com/photo-1640671509786-7ddd9d77c866?w=360&h=260&q=87&auto=format&fit=crop'
+const MAIN_PHOTO = 'https://images.unsplash.com/photo-1586771107445-d3ca888129ff?w=700&h=560&q=87&auto=format&fit=crop'
+const SEC_PHOTO  = 'https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=360&h=260&q=87&auto=format&fit=crop'
 
 interface AboutProps { lang: Lang }
 
