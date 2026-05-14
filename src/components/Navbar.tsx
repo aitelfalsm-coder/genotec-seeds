@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Home, Leaf, Info, Mail, ChevronRight } from 'lucide-react'
 import { type Lang, translations } from '../i18n'
 
 interface NavbarProps {
@@ -42,11 +42,12 @@ function useActiveSection() {
 }
 
 export default function Navbar({ lang, setLang }: NavbarProps) {
-  const [open, setOpen]       = useState(false)
+  const [open, setOpen]         = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const progress    = useScrollProgress()
+  const progress      = useScrollProgress()
   const activeSection = useActiveSection()
-  const t = translations[lang].nav
+  const t    = translations[lang].nav
+  const isRtl = lang === 'ar'
 
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 60)
@@ -60,14 +61,13 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
     return () => window.removeEventListener('resize', fn)
   }, [])
 
-  /* Light mode = scrolled OR mobile menu open */
   const light = scrolled || open
 
   const links = [
-    { href: '#accueil',  id: 'accueil',  label: t.home },
-    { href: '#produits', id: 'produits', label: t.products },
-    { href: '#apropos',  id: 'apropos',  label: t.about },
-    { href: '#contact',  id: 'contact',  label: t.contact },
+    { href: '#accueil',  id: 'accueil',  label: t.home,     Icon: Home },
+    { href: '#produits', id: 'produits', label: t.products,  Icon: Leaf },
+    { href: '#apropos',  id: 'apropos',  label: t.about,     Icon: Info },
+    { href: '#contact',  id: 'contact',  label: t.contact,   Icon: Mail },
   ]
 
   return (
@@ -77,22 +77,38 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
           from { opacity: 0; transform: translateY(-10px); }
           to   { opacity: 1; transform: translateY(0); }
         }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
 
-        /* Desktop nav link pill */
+        /* Desktop nav link */
         .nav-pill {
           position: relative;
           text-decoration: none;
-          font-weight: 600; font-size: 14px;
-          padding: 7px 16px; border-radius: 999px;
+          font-weight: 600; font-size: 13.5px;
+          padding: 8px 15px 10px; border-radius: 999px;
           transition: color .28s, background .28s;
-          white-space: nowrap; display: inline-flex; align-items: center; gap: 5px;
+          white-space: nowrap; display: inline-flex; align-items: center; gap: 6px;
+          overflow: hidden;
         }
-        .nav-pill .np-dot {
-          width: 4px; height: 4px; border-radius: 50%;
-          background: #C9A96E; opacity: 0;
-          transition: opacity .28s; flex-shrink: 0;
+        /* Animated underline indicator */
+        .nav-pill::after {
+          content: '';
+          position: absolute;
+          bottom: 5px; left: 50%;
+          transform: translateX(-50%) scaleX(0);
+          width: calc(100% - 24px); height: 2px; border-radius: 99px;
+          background: linear-gradient(90deg, #C9A96E, #1B4332);
+          transition: transform .3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        .nav-pill.active .np-dot { opacity: 1; }
+        .nav-pill.active::after {
+          transform: translateX(-50%) scaleX(1);
+        }
+        .nav-pill .nav-icon {
+          transition: transform .25s, color .25s;
+        }
+        .nav-pill:hover .nav-icon { transform: scale(1.2); }
 
         /* Lang */
         .lang-btn {
@@ -105,16 +121,17 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
         /* Mobile link */
         .mob-link {
           display: flex; align-items: center; justify-content: space-between;
-          padding: 13px 16px; text-decoration: none;
+          padding: 10px 12px; text-decoration: none;
           font-weight: 600; font-size: 15px; border-radius: 12px;
           margin-bottom: 3px; transition: all .15s; min-height: 50px;
-          color: #374151; border-left: 3px solid transparent;
+          color: #374151;
+          border-inline-start: 3px solid transparent;
         }
         .mob-link:hover { background: #F0F5F0; color: #0F2D1E; }
         .mob-link.active {
           background: rgba(27,67,50,0.07);
           color: #0F2D1E; font-weight: 700;
-          border-left-color: #1B4332;
+          border-inline-start-color: #1B4332;
         }
 
         @media (max-width: 860px) {
@@ -131,21 +148,35 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
         }
       `}</style>
 
+      {/* Backdrop overlay when mobile menu open */}
+      {open && (
+        <div
+          onClick={() => setOpen(false)}
+          aria-hidden="true"
+          style={{
+            position: 'fixed', inset: 0, zIndex: 40,
+            background: 'rgba(7,22,16,0.35)',
+            backdropFilter: 'blur(3px)',
+            WebkitBackdropFilter: 'blur(3px)',
+            animation: 'fadeIn .2s ease both',
+          }}
+        />
+      )}
+
       {/* ── Gold progress bar ── */}
-      <div style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 60, height: 2.5 }}>
+      <div style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 60, height: 3 }}>
         <div style={{
           height: '100%', width: `${progress}%`,
           background: 'linear-gradient(90deg, #1B4332, #C9A96E)',
           borderRadius: '0 2px 2px 0',
-          boxShadow: '0 0 10px rgba(201,169,110,0.55)',
+          boxShadow: '0 0 12px rgba(201,169,110,0.6)',
           transition: 'width .1s linear',
         }} />
       </div>
 
       {/* ── Header ── */}
       <header style={{
-        position: 'fixed', top: 2.5, left: 0, right: 0, zIndex: 50,
-        /* Transparent dark on hero, light opaque when scrolled */
+        position: 'fixed', top: 3, left: 0, right: 0, zIndex: 50,
         background: light
           ? 'rgba(250,250,247,0.97)'
           : 'rgba(7,22,16,0.52)',
@@ -160,15 +191,14 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
         <div style={{ maxWidth: 1140, margin: '0 auto', padding: '0 1.25rem' }}>
           <div style={{
             display: 'flex', alignItems: 'center',
-            justifyContent: 'space-between', height: 64, gap: 8,
+            justifyContent: 'space-between', height: 68, gap: 8,
           }}>
 
-            {/* ── Logo ── */}
+            {/* ── Logo + brand text ── */}
             <a href="#accueil" style={{
               display: 'flex', alignItems: 'center', gap: 10,
               textDecoration: 'none', flexShrink: 0,
             }}>
-              {/* White box on dark, transparent on light */}
               <div style={{
                 background: light ? 'transparent' : 'rgba(255,255,255,0.93)',
                 borderRadius: 10,
@@ -176,19 +206,23 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                 transition: 'all .38s ease',
                 display: 'flex', alignItems: 'center',
               }}>
-                <img src="/logo.png" alt="Genotec Seeds"
-                  style={{ height: 44, width: 'auto', objectFit: 'contain', display: 'block' }} />
+                <img
+                  src="/logo.png"
+                  alt="Genotec Seeds"
+                  style={{ height: 42, width: 'auto', objectFit: 'contain', display: 'block' }}
+                />
               </div>
+
             </a>
 
             {/* ── Desktop nav ── */}
             <nav className="desk-nav" style={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              {links.map(link => {
-                const active = activeSection === link.id
+              {links.map(({ href, id, label, Icon }) => {
+                const active = activeSection === id
                 return (
                   <a
-                    key={link.href}
-                    href={link.href}
+                    key={href}
+                    href={href}
                     className={`nav-pill${active ? ' active' : ''}`}
                     style={{
                       color: active
@@ -197,6 +231,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                       background: active
                         ? (light ? 'rgba(27,67,50,0.09)' : 'rgba(255,255,255,0.12)')
                         : 'transparent',
+                      fontWeight: active ? 700 : 600,
                     }}
                     onMouseEnter={e => {
                       if (!active) {
@@ -213,8 +248,12 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                       }
                     }}
                   >
-                    <span className="np-dot" />
-                    {link.label}
+                    <Icon
+                      size={13}
+                      strokeWidth={active ? 2.5 : 2}
+                      className="nav-icon"
+                    />
+                    {label}
                   </a>
                 )
               })}
@@ -275,7 +314,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                   e.currentTarget.style.boxShadow = '0 4px 16px rgba(201,169,110,0.42)'
                 }}
               >
-                Devis gratuit ✦
+                {t.cta} ✦
               </a>
 
               {/* Hamburger */}
@@ -324,20 +363,39 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
               Navigation
             </div>
 
-            {links.map(link => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className={`mob-link${activeSection === link.id ? ' active' : ''}`}
-              >
-                <span>{link.label}</span>
-                <span style={{
-                  color: activeSection === link.id ? '#1B4332' : 'rgba(0,0,0,0.18)',
-                  fontSize: 16,
-                }}>›</span>
-              </a>
-            ))}
+            {links.map(({ href, id, label, Icon }) => {
+              const active = activeSection === id
+              return (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={() => setOpen(false)}
+                  className={`mob-link${active ? ' active' : ''}`}
+                >
+                  <span style={{ display: 'flex', alignItems: 'center', gap: 11 }}>
+                    <span style={{
+                      width: 32, height: 32, borderRadius: 8, flexShrink: 0,
+                      background: active ? 'rgba(27,67,50,0.12)' : 'rgba(0,0,0,0.04)',
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: active ? '#1B4332' : '#9CA3AF',
+                      transition: 'all .15s',
+                    }}>
+                      <Icon size={15} strokeWidth={2.5} />
+                    </span>
+                    {label}
+                  </span>
+                  <ChevronRight
+                    size={16}
+                    strokeWidth={2}
+                    style={{
+                      color: active ? '#1B4332' : 'rgba(0,0,0,0.2)',
+                      transform: isRtl ? 'scaleX(-1)' : 'none',
+                      flexShrink: 0,
+                    }}
+                  />
+                </a>
+              )
+            })}
 
             <div style={{ height: 1, background: '#F0EDE8', margin: '10px 4px 12px' }} />
 
@@ -378,7 +436,7 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
                 minHeight: 52,
               }}
             >
-              Devis gratuit ✦
+              {t.cta} ✦
             </a>
           </div>
         )}

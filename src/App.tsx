@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 
 const Catalogue      = lazy(() => import('./components/Catalogue'))
+const MarocMap       = lazy(() => import('./components/MarocMap'))
 const SeedFeatures   = lazy(() => import('./components/SeedFeatures'))
 const About          = lazy(() => import('./components/About'))
 const Contact        = lazy(() => import('./components/Contact'))
@@ -25,6 +26,7 @@ export default function App() {
         <Hero lang={lang} />
         <Suspense fallback={null}>
           <Catalogue lang={lang} />
+          <MarocMap lang={lang} />
           <SeedFeatures lang={lang} />
           <About lang={lang} />
           <Contact lang={lang} />

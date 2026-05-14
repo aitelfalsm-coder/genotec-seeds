@@ -14,17 +14,35 @@ type Slide = {
 }
 
 const SLIDES: Slide[] = [
-  { url: 'https://images.unsplash.com/photo-1626856591548-dda9df54d878?w=1200&q=90&auto=format&fit=crop', name: 'Semences sélectionnées', variety: 'Sélection rigoureuse', category: 'Agriculture', emoji: '🌾' },
-  { url: 'https://images.unsplash.com/photo-1530451444500-5dce90309851?w=1200&q=90&auto=format&fit=crop', name: 'Semences maraîchères', variety: 'Légumineuses sélectionnées', category: 'Maraîchage', emoji: '🌱' },
-  { url: 'https://images.unsplash.com/photo-1761399976689-0214e851b6f7?w=1200&q=90&auto=format&fit=crop', name: 'Germination certifiée', variety: 'Levée garantie', category: 'Germination', emoji: '🌱' },
-  { url: 'https://images.unsplash.com/photo-1640671509786-7ddd9d77c866?w=1200&q=90&auto=format&fit=crop', name: 'Semis professionnel', variety: 'Plateau certifié', category: 'Pépinière', emoji: '🪴' },
-  { url: 'https://images.unsplash.com/photo-1745513169791-80fe358bec49?w=1200&q=90&auto=format&fit=crop', name: 'Levée de semences', variety: 'Qualité premium', category: 'Qualité', emoji: '🌿' },
-  { url: 'https://images.unsplash.com/photo-1746474072546-9fbda10daffe?w=1200&q=90&auto=format&fit=crop', name: 'Semences maraîchères', variety: 'Variétés adaptées', category: 'Maraîchage', emoji: '🤲' },
-  { url: 'https://images.unsplash.com/photo-1756946349424-9cb103f6a448?w=1200&q=90&auto=format&fit=crop', name: 'Semences Cucurbitacées', variety: 'Qualité premium', category: 'Cucurbitacées', emoji: '🎃' },
-  { url: '', branded: true, name: 'GENOTEC SEEDS', variety: 'Semences certifiées', category: 'Notre marque', emoji: '🌿' },
+  { url: '/jabri-pic.jpg', name: 'Pastèque en production', variety: 'Variété hybride', category: 'Pastèque', emoji: '🍉' },
+  { url: 'https://images.unsplash.com/photo-1681570312135-f7626c851df8?w=1200&q=90&auto=format&fit=crop', name: 'Poivrons en croissance', variety: 'Variétés hybrides', category: 'Poivron', emoji: '🌶️' },
+  { url: 'https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=1200&q=90&auto=format&fit=crop', name: 'Plants maraîchers', variety: 'Plateaux de semis', category: 'Pépinière', emoji: '🌱' },
+  { url: 'https://images.unsplash.com/photo-1615671524827-c1fe3973b648?w=1200&q=90&auto=format&fit=crop', name: 'Transplantation', variety: 'Plants certifiés', category: 'Transplantation', emoji: '🪴' },
+  { url: 'https://images.unsplash.com/photo-1712342109846-a8fcb1c883ba?w=1200&q=90&auto=format&fit=crop', name: 'Germination garantie', variety: 'Levée contrôlée', category: 'Germination', emoji: '🌱' },
+  { url: 'https://images.unsplash.com/photo-1529313780224-1a12b68bed16?w=1200&q=90&auto=format&fit=crop', name: 'Légumes du Maroc', variety: 'Variétés adaptées', category: 'Maraîchage', emoji: '🥬' },
+  { url: 'https://images.unsplash.com/photo-1683008952458-dc02ac67f382?w=1200&q=90&auto=format&fit=crop', name: 'Tomates en production', variety: 'Variétés hybrides', category: 'Tomate', emoji: '🍅' },
+  { url: 'https://images.unsplash.com/photo-1627647563441-c4bdf17486d2?w=1200&q=90&auto=format&fit=crop', name: 'Semis en pot', variety: 'Qualité premium', category: 'Semis', emoji: '🌿' },
+  { url: '/melon-pic.jpg', name: 'Melons en production', variety: 'Variété hybride', category: 'Melon', emoji: '🍈' },
 ]
 
-const MARQUEE = ['Tomate', 'Poivron', 'Melon', 'Pastèque', 'Carotte', 'Oignon', 'Pomme de terre', 'Maïs', 'Courgette', 'Concombre', 'Persil', 'Coriandre', 'Laitue', 'Radis', 'Aubergine']
+const MARQUEE = [
+  { n: 'Tomate',         e: '🍅' },
+  { n: 'Poivron',        e: '🌶️' },
+  { n: 'Melon',          e: '🍈' },
+  { n: 'Pastèque',       e: '🍉' },
+  { n: 'Carotte',        e: '🥕' },
+  { n: 'Oignon',         e: '🌿' },
+  { n: 'Pomme de terre', e: '🥔' },
+  { n: 'Maïs',           e: '🌽' },
+  { n: 'Courgette',      e: '🥒' },
+  { n: 'Concombre',      e: '🥒' },
+  { n: 'Aubergine',      e: '🍆' },
+  { n: 'Piment Fort',    e: '🌶️' },
+  { n: 'Persil',         e: '🌿' },
+  { n: 'Coriandre',      e: '🌿' },
+  { n: 'Laitue',         e: '🥬' },
+  { n: 'Radis',          e: '🌱' },
+]
 
 const TRUST: Record<Lang, string[]> = {
   fr: ['Semences certifiées', 'Société marocaine', 'Distribution nationale'],
@@ -86,6 +104,10 @@ export default function Hero({ lang }: HeroProps) {
         @keyframes scrollBounce {
           0%, 100% { transform: translateY(0); opacity: .55; }
           50%      { transform: translateY(7px); opacity: .2; }
+        }
+        @keyframes floatCard {
+          0%, 100% { transform: translateY(0px); }
+          50%      { transform: translateY(-6px); }
         }
 
         .slide-img {
@@ -157,6 +179,7 @@ export default function Hero({ lang }: HeroProps) {
           border-color: rgba(255,255,255,0.3);
         }
 
+        .hero-float-card { display: flex; }
         @media (max-width: 780px) {
           .hero-stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
           .hero-stats-grid .hero-stat-item:nth-child(2) { border-right: none !important; }
@@ -167,6 +190,7 @@ export default function Hero({ lang }: HeroProps) {
           .hero-arrow { width: 38px !important; height: 38px !important; font-size: 18px !important; }
           .scroll-indicator { display: none; }
           .hero-main-grid { gap: 1.5rem !important; padding-top: 1.25rem !important; }
+          .hero-float-card { display: none !important; }
         }
         @media (max-width: 480px) {
           .hero-badge { letter-spacing: 0.09em !important; padding: 7px 13px !important; font-size: 10px !important; margin-bottom: 18px !important; }
@@ -266,8 +290,11 @@ export default function Hero({ lang }: HeroProps) {
               {t.title}
               <br />
               <span style={{
-                color: '#C9A96E',
-                textShadow: '0 0 80px rgba(201,169,110,0.4)',
+                background: 'linear-gradient(135deg, #DBC080 0%, #C9A96E 45%, #B8935A 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                filter: 'drop-shadow(0 2px 32px rgba(201,169,110,0.45))',
               }}>
                 {t.titleHighlight}
               </span>
@@ -327,7 +354,7 @@ export default function Hero({ lang }: HeroProps) {
           </div>
 
           {/* ── Right: Slideshow ── */}
-          <div style={{ order: isRTL ? 1 : 2, animation: 'heroFadeIn 1s ease .35s both' }}>
+          <div style={{ order: isRTL ? 1 : 2, animation: 'heroFadeIn 1s ease .35s both', position: 'relative' }}>
             <div
               className="hero-slideshow"
               style={{
@@ -532,6 +559,67 @@ export default function Hero({ lang }: HeroProps) {
                 </div>
               </div>
             </div>
+
+            {/* ── Floating card 1 — agriculteurs ── */}
+            <div
+              className="hero-float-card"
+              style={{
+                position: 'absolute', top: 82, right: -18, zIndex: 20,
+                background: '#fff',
+                borderRadius: 18, padding: '12px 16px',
+                boxShadow: '0 16px 44px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.1)',
+                alignItems: 'center', gap: 12,
+                animation: 'heroFadeIn 1s ease .9s both, floatCard 4s ease-in-out 1.9s infinite',
+              }}
+            >
+              <div style={{
+                width: 42, height: 42, borderRadius: '50%', flexShrink: 0,
+                background: 'linear-gradient(135deg, #0F2D1E, #1B4332)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <Users size={18} strokeWidth={2} style={{ color: '#C9A96E' }} />
+              </div>
+              <div>
+                <div style={{ fontWeight: 900, fontSize: 22, color: '#111827', lineHeight: 1, letterSpacing: '-0.03em' }}>
+                  1000+
+                </div>
+                <div style={{ fontSize: 10.5, color: '#9CA3AF', fontWeight: 600, marginTop: 4, whiteSpace: 'nowrap' }}>
+                  Agriculteurs partenaires
+                </div>
+              </div>
+            </div>
+
+            {/* ── Floating card 2 — variétés ── */}
+            <div
+              className="hero-float-card"
+              style={{
+                position: 'absolute', bottom: 108, left: -18, zIndex: 20,
+                background: 'linear-gradient(140deg, #0A1F14, #0F2D1E)',
+                border: '1px solid rgba(201,169,110,0.3)',
+                borderRadius: 18, padding: '12px 16px',
+                boxShadow: '0 16px 44px rgba(0,0,0,0.48)',
+                alignItems: 'center', gap: 12,
+                animation: 'heroFadeIn 1s ease 1.1s both, floatCard 4s ease-in-out 2.4s infinite',
+              }}
+            >
+              <div style={{
+                width: 42, height: 42, borderRadius: '50%', flexShrink: 0,
+                background: 'rgba(201,169,110,0.13)',
+                border: '1px solid rgba(201,169,110,0.35)',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+              }}>
+                <Sprout size={18} strokeWidth={2} style={{ color: '#C9A96E' }} />
+              </div>
+              <div>
+                <div style={{ fontWeight: 900, fontSize: 22, color: '#fff', lineHeight: 1, letterSpacing: '-0.03em' }}>
+                  50+
+                </div>
+                <div style={{ fontSize: 10.5, color: 'rgba(255,255,255,0.42)', fontWeight: 600, marginTop: 4, whiteSpace: 'nowrap' }}>
+                  Variétés certifiées
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -545,20 +633,20 @@ export default function Hero({ lang }: HeroProps) {
         }}>
           <div style={{
             display: 'flex',
-            animation: 'marqueeScroll 28s linear infinite',
+            animation: 'marqueeScroll 18s linear infinite',
             willChange: 'transform',
           }}>
             {[...MARQUEE, ...MARQUEE].map((item, i) => (
               <span key={i} style={{
                 flexShrink: 0,
-                color: 'rgba(201,169,110,0.62)', fontSize: 10.5, fontWeight: 700,
-                letterSpacing: '0.22em', textTransform: 'uppercase',
-                padding: '0 1.8rem',
-                display: 'inline-flex', alignItems: 'center', gap: '1.8rem',
+                color: 'rgba(201,169,110,0.7)', fontSize: 13, fontWeight: 700,
+                letterSpacing: '0.18em', textTransform: 'uppercase',
+                padding: '0 1.6rem',
+                display: 'inline-flex', alignItems: 'center', gap: 8,
                 whiteSpace: 'nowrap',
               }}>
-                {item}
-                <span style={{ color: 'rgba(201,169,110,0.25)', fontSize: 7 }}>✦</span>
+                {item.n}
+                <span style={{ color: 'rgba(201,169,110,0.22)', fontSize: 7, marginLeft: 8 }}>✦</span>
               </span>
             ))}
           </div>

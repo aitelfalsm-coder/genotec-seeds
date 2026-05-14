@@ -16,6 +16,10 @@ const PHOTOS = [
   'https://images.unsplash.com/photo-1741517480900-8bee5b4f48df?w=600&h=400&q=85&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1691009154594-c126d55eaaf2?w=600&h=400&q=85&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1757332914764-ca5a484c5fe1?w=600&h=400&q=85&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1683543122945-513029986574?w=600&h=400&q=85&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1615485499978-1279c3d6302f?w=600&h=400&q=85&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1449300079323-02e209d9d3a6?w=600&h=400&q=85&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1546860255-95536c19724e?w=600&h=400&q=85&auto=format&fit=crop',
 ]
 
 const ACCENTS = [
@@ -27,6 +31,10 @@ const ACCENTS = [
   { main: '#5B7BC4', light: 'rgba(91,123,196,0.1)',  border: 'rgba(91,123,196,0.25)' },
   { main: '#8A6B35', light: 'rgba(138,107,53,0.1)',  border: 'rgba(138,107,53,0.25)' },
   { main: '#2A9060', light: 'rgba(42,144,96,0.1)',   border: 'rgba(42,144,96,0.25)'  },
+  { main: '#7C3D9E', light: 'rgba(124,61,158,0.1)', border: 'rgba(124,61,158,0.25)' },
+  { main: '#5A9E35', light: 'rgba(90,158,53,0.1)',  border: 'rgba(90,158,53,0.25)'  },
+  { main: '#2E8B57', light: 'rgba(46,139,87,0.1)',  border: 'rgba(46,139,87,0.25)'  },
+  { main: '#D43A1A', light: 'rgba(212,58,26,0.1)',  border: 'rgba(212,58,26,0.25)'  },
 ]
 
 interface ProductMeta {
@@ -128,6 +136,50 @@ const META: ProductMeta[] = [
       fr: ['Tolérant Sécheresse', 'Haut Rendement', 'Semi-Aride'],
       ar: ['متحمل للجفاف', 'إنتاجية عالية', 'شبه جاف'],
       en: ['Drought Tolerant', 'High Yield', 'Semi-Arid'],
+    },
+  },
+  {
+    type: 'fruit-veg', cycle: 'medium', season: 'spring-summer',
+    resistances: ['virus', 'mildew'], rendement: '30–50 T/ha', perfScore: 86,
+    cycleLabel: { fr: '80–100 j', ar: '80–100 ي', en: '80–100 d' },
+    sol: { fr: 'Limon-argileux', ar: 'طمي طيني', en: 'Clay loam' },
+    badges: {
+      fr: ['Chair Ferme', 'Anti-Mildiou', 'Longue Conservation'],
+      ar: ['لب صلب', 'مقاوم البياض', 'طويل الحفظ'],
+      en: ['Firm Flesh', 'Mildew Resistant', 'Long Shelf Life'],
+    },
+  },
+  {
+    type: 'fruit-veg', cycle: 'short', season: 'spring-summer',
+    resistances: ['mildew', 'virus'], rendement: '25–40 T/ha', perfScore: 83,
+    cycleLabel: { fr: '55–70 j', ar: '55–70 ي', en: '55–70 d' },
+    sol: { fr: 'Limon-sableux', ar: 'طمي رملي', en: 'Sandy loam' },
+    badges: {
+      fr: ['Croissance Rapide', 'Anti-Mildiou', 'Précocité'],
+      ar: ['نمو سريع', 'مقاوم البياض', 'نضج مبكر'],
+      en: ['Fast Growing', 'Mildew Resistant', 'Early Season'],
+    },
+  },
+  {
+    type: 'fruit-veg', cycle: 'short', season: 'spring-summer',
+    resistances: ['mildew', 'virus'], rendement: '40–70 T/ha', perfScore: 88,
+    cycleLabel: { fr: '45–60 j', ar: '45–60 ي', en: '45–60 d' },
+    sol: { fr: 'Sableux-limoneux', ar: 'رملي طمي', en: 'Sandy loam' },
+    badges: {
+      fr: ['Haute Densité', 'Anti-Mildiou', 'Serre & Plein Air'],
+      ar: ['كثافة عالية', 'مقاوم البياض', 'بيت محمي وهواء طلق'],
+      en: ['High Density', 'Mildew Resistant', 'Greenhouse & Field'],
+    },
+  },
+  {
+    type: 'fruit-veg', cycle: 'medium', season: 'spring-summer',
+    resistances: ['virus', 'drought'], rendement: '20–35 T/ha', perfScore: 84,
+    cycleLabel: { fr: '75–95 j', ar: '75–95 ي', en: '75–95 d' },
+    sol: { fr: 'Tous types', ar: 'جميع الأنواع', en: 'All soil types' },
+    badges: {
+      fr: ['Fort Piquant', 'Résistant PVY', 'Export Premium'],
+      ar: ['حرارة عالية', 'مقاوم PVY', 'تصدير ممتاز'],
+      en: ['High Heat', 'PVY Resistant', 'Premium Export'],
     },
   },
 ]
