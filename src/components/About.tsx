@@ -9,7 +9,7 @@ import { type Lang, translations } from '../i18n'
 const VALUE_ICONS   = [Award, FlaskConical, Globe, Leaf]
 const STAT_ICONS    = [CalendarDays, Sprout, MapIcon, Users]
 const CERT_ICONS    = [ShieldCheck, Star, Check, Truck]
-const VALUE_ACCENTS = ['#C9503A', '#C9A96E', '#1B4332', '#1A4E7A']
+const VALUE_ACCENTS = ['#C9503A', '#6BBF4A', '#1B6B5C', '#1A4E7A']
 
 const REGIONS = ['Souss-Massa', 'Marrakech', 'Casablanca', 'Rabat', 'Fès', 'Tanger', 'Meknès', 'Oriental', '+4']
 
@@ -129,15 +129,15 @@ function StatCell({ s, i, active }: { s: { value: string; label: string }; i: nu
       <div style={{
         display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
         width: 36, height: 36, borderRadius: '50%',
-        background: 'rgba(201,169,110,0.1)',
-        border: '1px solid rgba(201,169,110,0.2)',
-        color: '#C9A96E', marginBottom: 12,
+        background: 'rgba(107,191,74,0.1)',
+        border: '1px solid rgba(107,191,74,0.22)',
+        color: '#6BBF4A', marginBottom: 12,
       }}>
         <Icon size={16} strokeWidth={1.7} />
       </div>
       <div style={{
         fontSize: 'clamp(2.4rem,5vw,3.8rem)',
-        fontWeight: 900, color: '#C9A96E',
+        fontWeight: 900, color: '#6BBF4A',
         lineHeight: 1, letterSpacing: '-0.05em', marginBottom: 10,
       }}>
         {count}{suffix}
@@ -154,8 +154,8 @@ function StatCell({ s, i, active }: { s: { value: string; label: string }; i: nu
 }
 
 const TL_COLORS = [
-  { color: '#C9A96E', shadow: 'rgba(201,169,110,0.38)' },
-  { color: '#1B4332', shadow: 'rgba(27,67,50,0.3)' },
+  { color: '#6BBF4A', shadow: 'rgba(107,191,74,0.42)' },
+  { color: '#1B6B5C', shadow: 'rgba(27,107,92,0.38)' },
   { color: '#1A4E7A', shadow: 'rgba(26,78,122,0.3)' },
 ]
 
@@ -283,7 +283,7 @@ export default function About({ lang }: AboutProps) {
         {/* ── Backgrounds ── */}
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
-          backgroundImage: 'radial-gradient(circle, rgba(201,169,110,0.032) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, rgba(107,191,74,0.03) 1px, transparent 1px)',
           backgroundSize: '40px 40px',
         }} />
         <div style={{
@@ -295,7 +295,7 @@ export default function About({ lang }: AboutProps) {
         <div style={{
           position: 'absolute', bottom: '30%', right: 0,
           width: '35%', height: '35%',
-          background: 'radial-gradient(ellipse at 100% 100%, rgba(201,169,110,0.05) 0%, transparent 65%)',
+          background: 'radial-gradient(ellipse at 100% 100%, rgba(107,191,74,0.045) 0%, transparent 65%)',
           pointerEvents: 'none',
         }} />
 
@@ -320,11 +320,11 @@ export default function About({ lang }: AboutProps) {
               {t.title}
             </h2>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, margin: '0 auto 22px' }}>
-              <div style={{ width: 40, height: 1, background: 'rgba(201,169,110,0.3)' }} />
-              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#C9A96E' }} />
-              <div style={{ width: 48, height: 3, borderRadius: 99, background: 'linear-gradient(90deg,#C9A96E,#1B4332)' }} />
-              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#1B4332', opacity: 0.5 }} />
-              <div style={{ width: 40, height: 1, background: 'rgba(27,67,50,0.2)' }} />
+              <div style={{ width: 40, height: 1, background: 'rgba(107,191,74,0.3)' }} />
+              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#6BBF4A' }} />
+              <div style={{ width: 48, height: 3, borderRadius: 99, background: 'linear-gradient(90deg,#6BBF4A,#1B6B5C)' }} />
+              <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#1B6B5C', opacity: 0.55 }} />
+              <div style={{ width: 40, height: 1, background: 'rgba(27,107,92,0.22)' }} />
             </div>
             <p style={{
               color: '#6B7280', fontSize: 'clamp(14px,1.6vw,17px)',
@@ -343,8 +343,8 @@ export default function About({ lang }: AboutProps) {
                 position: 'absolute',
                 top: 18, left: -18, right: '22%', bottom: '-4px',
                 borderRadius: 28,
-                border: '1.5px solid rgba(201,169,110,0.28)',
-                background: 'rgba(201,169,110,0.03)',
+                border: '1.5px solid rgba(107,191,74,0.28)',
+                background: 'rgba(107,191,74,0.02)',
                 pointerEvents: 'none',
               }} />
 
@@ -403,18 +403,18 @@ export default function About({ lang }: AboutProps) {
               {/* Floating badge */}
               <div className="about-photo-badge" style={{
                 position: 'absolute', top: -18, right: '18%',
-                background: 'linear-gradient(135deg, #C9A96E, #B8935A)',
+                background: 'linear-gradient(135deg, #6BBF4A, #4DA832)',
                 borderRadius: 18, padding: '14px 20px',
-                boxShadow: '0 10px 30px rgba(201,169,110,0.55)',
+                boxShadow: '0 10px 30px rgba(107,191,74,0.52)',
                 border: '3px solid #fff', zIndex: 3,
               }}>
                 <div style={{
                   fontSize: 'clamp(1.6rem,3vw,2.2rem)',
-                  fontWeight: 900, color: '#0F2D1E',
+                  fontWeight: 900, color: '#0A1F14',
                   lineHeight: 1, letterSpacing: '-0.04em',
                 }}>15+</div>
                 <div style={{
-                  fontSize: 9, fontWeight: 700, color: 'rgba(15,45,30,0.65)',
+                  fontSize: 9, fontWeight: 700, color: 'rgba(10,31,20,0.65)',
                   marginTop: 4, letterSpacing: '0.08em', textTransform: 'uppercase',
                 }}>
                   {YEARS_LBL[lang]}
@@ -431,7 +431,7 @@ export default function About({ lang }: AboutProps) {
                   ...(isRTL ? { right: 7 } : { left: 7 }),
                   top: 8, bottom: '4rem',
                   width: 2,
-                  background: 'linear-gradient(to bottom, #C9A96E 0%, #1B4332 55%, #1A4E7A 85%, rgba(26,78,122,0.08) 100%)',
+                  background: 'linear-gradient(to bottom, #6BBF4A 0%, #1B6B5C 55%, #1A4E7A 85%, rgba(26,78,122,0.08) 100%)',
                   borderRadius: 99,
                 }} />
 
@@ -589,7 +589,7 @@ export default function About({ lang }: AboutProps) {
                       width: 48, height: 48, borderRadius: 14,
                       background: 'linear-gradient(135deg, #0F2D1E, #1B4332)',
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: '#C9A96E',
+                      color: '#6BBF4A',
                       boxShadow: '0 4px 14px rgba(15,45,30,0.22)',
                       marginBottom: 14,
                     }}>
@@ -629,7 +629,7 @@ export default function About({ lang }: AboutProps) {
             <div style={{
               position: 'absolute', top: '-60%', right: '-5%',
               width: 440, height: 440, borderRadius: '50%',
-              background: 'radial-gradient(circle, rgba(201,169,110,0.1), transparent 65%)',
+              background: 'radial-gradient(circle, rgba(107,191,74,0.1), transparent 65%)',
               pointerEvents: 'none',
             }} />
 
@@ -657,9 +657,9 @@ export default function About({ lang }: AboutProps) {
                 {REGIONS.map(r => (
                   <span key={r} style={{
                     padding: '3px 10px', borderRadius: 999,
-                    background: 'rgba(201,169,110,0.11)',
-                    border: '1px solid rgba(201,169,110,0.2)',
-                    color: '#C9A96E', fontSize: 10, fontWeight: 700,
+                    background: 'rgba(107,191,74,0.1)',
+                    border: '1px solid rgba(107,191,74,0.22)',
+                    color: '#8EDB60', fontSize: 10, fontWeight: 700,
                   }}>
                     {r}
                   </span>
