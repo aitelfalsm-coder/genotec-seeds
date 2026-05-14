@@ -460,9 +460,9 @@ export default function About({ lang }: AboutProps) {
                       }} />
                     </div>
                     <p style={{
-                      color: i === 0 ? '#374151' : '#6B7280',
+                      color: '#4B5563',
                       fontSize: 'clamp(14px,1.45vw,15.5px)',
-                      lineHeight: 1.95, margin: 0, fontWeight: i === 0 ? 500 : 400,
+                      lineHeight: 1.95, margin: 0, fontWeight: 500,
                     }}>
                       {tlTexts[i]}
                     </p>
