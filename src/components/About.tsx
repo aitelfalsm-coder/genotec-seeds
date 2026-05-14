@@ -195,22 +195,19 @@ export default function About({ lang }: AboutProps) {
           background: #fff;
           border: 1.5px solid #EDEAE4;
           border-radius: 22px;
-          padding: clamp(1.6rem,3vw,2.5rem);
-          transition: transform .28s ease, box-shadow .28s ease, border-color .28s;
+          padding: clamp(1.8rem,3vw,2.6rem) clamp(1.6rem,3vw,2.4rem) clamp(1.6rem,3vw,2.2rem);
+          transition: transform .3s ease, box-shadow .3s ease;
           position: relative; overflow: hidden;
           cursor: default;
         }
         .val-card:hover {
-          transform: translateY(-7px);
-          box-shadow: 0 24px 56px rgba(0,0,0,0.1);
-          border-color: rgba(0,0,0,0.04);
+          transform: translateY(-8px);
+          box-shadow: 0 28px 64px rgba(0,0,0,0.11);
         }
-        .val-bar {
-          position: absolute; bottom: 0; left: 0; right: 0;
-          height: 3px; border-radius: 0 0 22px 22px;
-          opacity: 0; transition: opacity .28s;
+        .val-top-bar {
+          position: absolute; top: 0; left: 0; right: 0;
+          height: 4px; border-radius: 22px 22px 0 0;
         }
-        .val-card:hover .val-bar { opacity: 1; }
 
         .cert-grid {
           display: grid;
@@ -256,7 +253,7 @@ export default function About({ lang }: AboutProps) {
         }
         @media (max-width: 640px) {
           .about-vals-grid { grid-template-columns: 1fr !important; }
-          .val-card { padding: 1.4rem 1.3rem !important; }
+          .val-card { padding: 1.6rem 1.3rem 1.4rem !important; }
           .about-section-header { margin-bottom: 2.5rem !important; }
         }
         @media (max-width: 580px) {
@@ -528,25 +525,25 @@ export default function About({ lang }: AboutProps) {
               const ValIcon = VALUE_ICONS[i]
               return (
                 <div key={i} className="val-card">
-                  <div className="val-bar" style={{ background: VALUE_ACCENTS[i] }} />
+                  <div className="val-top-bar" style={{ background: VALUE_ACCENTS[i] }} />
                   <div style={{
-                    position: 'absolute', top: -8, right: 16,
-                    fontSize: 96, fontWeight: 900, lineHeight: 1,
-                    color: VALUE_ACCENTS[i], opacity: 0.06,
+                    position: 'absolute', top: 14, right: 18,
+                    fontSize: 11, fontWeight: 800, lineHeight: 1,
+                    color: VALUE_ACCENTS[i], opacity: 0.28,
+                    letterSpacing: '0.08em',
                     userSelect: 'none', pointerEvents: 'none',
-                    letterSpacing: '-0.06em',
                   }}>
                     {String(i + 1).padStart(2, '0')}
                   </div>
                   <div style={{
                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-                    width: 60, height: 60, borderRadius: 17,
-                    background: `${VALUE_ACCENTS[i]}13`,
-                    border: `1.5px solid ${VALUE_ACCENTS[i]}28`,
+                    width: 64, height: 64, borderRadius: 18,
+                    background: `linear-gradient(135deg, ${VALUE_ACCENTS[i]}1c, ${VALUE_ACCENTS[i]}0a)`,
+                    border: `1.5px solid ${VALUE_ACCENTS[i]}3a`,
                     color: VALUE_ACCENTS[i],
-                    marginBottom: 20, position: 'relative',
+                    marginBottom: 22, position: 'relative',
                   }}>
-                    <ValIcon size={27} strokeWidth={1.5} />
+                    <ValIcon size={28} strokeWidth={1.5} />
                   </div>
                   <div style={{
                     fontWeight: 800, color: '#111827', fontSize: 17,
@@ -554,7 +551,7 @@ export default function About({ lang }: AboutProps) {
                   }}>
                     {v.title}
                   </div>
-                  <div style={{ color: '#6B7280', fontSize: 13.5, lineHeight: 1.78 }}>
+                  <div style={{ color: '#5B6471', fontSize: 14, lineHeight: 1.82 }}>
                     {v.desc}
                   </div>
                 </div>

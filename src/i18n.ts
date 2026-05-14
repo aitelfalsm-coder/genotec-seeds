@@ -59,10 +59,10 @@ export const translations = {
       p1: 'Enracinés dans la passion du végétal, nous commercialisons depuis plus de 15 ans des semences de qualité supérieure, distribuées dans l\'ensemble du Royaume du Maroc.',
       p2: 'Nous accompagnons les agriculteurs marocains avec des semences certifiées, sélectionnées pour s\'adapter aux conditions locales et garantir des rendements optimaux saison après saison.',
       values: [
-        { icon: '💎', title: 'Qualité', desc: 'Semences certifiées et rigoureusement sélectionnées' },
-        { icon: '🔬', title: 'Innovation', desc: 'Variétés adaptées aux défis climatiques actuels' },
-        { icon: '🌐', title: 'Proximité', desc: 'Un réseau de distribution couvrant tout le Maroc' },
-        { icon: '🌍', title: 'Durabilité', desc: 'Engagement pour une agriculture responsable' },
+        { icon: '💎', title: 'Qualité', desc: 'Chaque semence est rigoureusement certifiée et contrôlée — taux de germination, pureté variétale et conformité aux normes marocaines garantis.' },
+        { icon: '🔬', title: 'Innovation', desc: 'Nous intégrons les dernières avancées en sélection végétale pour offrir des variétés robustes, adaptées aux spécificités climatiques du Maroc.' },
+        { icon: '🌐', title: 'Proximité', desc: 'Présents dans les 12 régions du Royaume avec des techniciens sur le terrain, nous accompagnons chaque agriculteur au plus près de sa réalité.' },
+        { icon: '🌍', title: 'Durabilité', desc: 'Nos variétés sont sélectionnées pour leur résistance aux maladies et leur efficience hydrique, au service d\'une agriculture marocaine durable.' },
       ],
       statsTitle: 'En chiffres',
       stats: [
@@ -202,10 +202,10 @@ export const translations = {
       p1: 'متجذرون في شغف الزراعة، نتخصص منذ أكثر من 15 عاماً في تسويق بذور عالية الجودة ونوزعها في جميع أنحاء المملكة المغربية.',
       p2: 'نرافق الفلاحين المغاربة ببذور معتمدة، مختارة بعناية لتلائم الظروف المحلية وتضمن أفضل إنتاجية موسماً بعد موسم.',
       values: [
-        { icon: '💎', title: 'الجودة', desc: 'بذور معتمدة ومنتقاة بعناية' },
-        { icon: '🔬', title: 'الابتكار', desc: 'أصناف متكيفة مع تحديات المناخ' },
-        { icon: '🌐', title: 'القرب', desc: 'شبكة توزيع تغطي كامل المغرب' },
-        { icon: '🌍', title: 'الاستدامة', desc: 'التزام بالزراعة المسؤولة' },
+        { icon: '💎', title: 'الجودة', desc: 'كل بذرة تخضع لشهادات صارمة وفحوصات دقيقة — نسبة إنبات مضمونة ونقاء صنفي وامتثال تام للمعايير المغربية.' },
+        { icon: '🔬', title: 'الابتكار', desc: 'نوظّف أحدث تقنيات الانتقاء النباتي لتوفير أصناف قوية ومتكيفة مع خصائص المناخ المغربي المتنوعة.' },
+        { icon: '🌐', title: 'القرب', desc: 'حاضرون في 12 جهة من المملكة بفريق تقني ميداني، نرافق كل فلاح بما يناسب واقعه وظروفه الزراعية.' },
+        { icon: '🌍', title: 'الاستدامة', desc: 'تُنتقى أصنافنا لمقاومتها للأمراض وكفاءتها في استهلاك المياه، خدمةً لزراعة مغربية مستدامة ومسؤولة.' },
       ],
       statsTitle: 'بالأرقام',
       stats: [
@@ -345,10 +345,10 @@ export const translations = {
       p1: 'Rooted in a passion for growing, we have been distributing premium quality seeds throughout the Kingdom of Morocco for over 15 years.',
       p2: 'We support Moroccan farmers with certified seeds, carefully selected to suit local conditions and deliver optimal yields season after season.',
       values: [
-        { icon: '💎', title: 'Quality', desc: 'Certified and rigorously selected seeds' },
-        { icon: '🔬', title: 'Innovation', desc: 'Varieties adapted to climate challenges' },
-        { icon: '🌐', title: 'Proximity', desc: 'A distribution network covering all of Morocco' },
-        { icon: '🌍', title: 'Sustainability', desc: 'Commitment to responsible agriculture' },
+        { icon: '💎', title: 'Quality', desc: 'Every seed undergoes rigorous certification and testing — guaranteed germination rate, varietal purity, and compliance with Moroccan standards.' },
+        { icon: '🔬', title: 'Innovation', desc: 'We integrate the latest plant breeding advances to deliver robust varieties tailored to Morocco\'s diverse climatic conditions.' },
+        { icon: '🌐', title: 'Proximity', desc: 'Present in all 12 regions of the Kingdom with field technicians, we support every farmer close to their reality.' },
+        { icon: '🌍', title: 'Sustainability', desc: 'Our varieties are selected for disease resistance and water efficiency, in service of a sustainable and responsible Moroccan agriculture.' },
       ],
       statsTitle: 'By the numbers',
       stats: [
