@@ -293,7 +293,7 @@ export default function Hero({ lang }: HeroProps) {
             </div>
 
             {/* Headline principal */}
-            <div style={{ marginBottom: '1.75rem' }}>
+            <div style={{ marginBottom: '1.75rem', textAlign: 'center' }}>
               <h1 style={{
                 fontSize: 'clamp(2.4rem, 5.5vw, 5rem)',
                 fontWeight: 900,
@@ -306,8 +306,10 @@ export default function Hero({ lang }: HeroProps) {
                   filter: 'drop-shadow(0 0 22px rgba(107,191,74,0.55))',
                 }}>SEEDS</span>
               </h1>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.7rem', marginBottom: '0.15rem' }}>
-                <div style={{ height: 2, width: 38, background: 'linear-gradient(90deg, #6BBF4A, transparent)', borderRadius: 99, flexShrink: 0 }} />
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.15rem' }}>
+                <div style={{ height: 2, width: 32, background: 'linear-gradient(270deg, #6BBF4A, transparent)', borderRadius: 99 }} />
+                <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#6BBF4A', opacity: 0.7, flexShrink: 0 }} />
+                <div style={{ height: 2, width: 32, background: 'linear-gradient(90deg, #6BBF4A, transparent)', borderRadius: 99 }} />
               </div>
               <p style={{
                 fontSize: 'clamp(1.5rem, 3.5vw, 3.1rem)',
