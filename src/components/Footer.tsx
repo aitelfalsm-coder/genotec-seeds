@@ -4,7 +4,6 @@ import { type Lang, translations } from '../i18n'
 
 interface FooterProps { lang: Lang }
 
-/* ── Social SVGs ── */
 function IconFacebook() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -38,7 +37,6 @@ function IconWA() {
   )
 }
 
-/* ── Data ── */
 const SOCIALS = [
   { Icon: IconFacebook,  label: 'Facebook',  color: '#1877F2', href: '#' },
   { Icon: IconLinkedin,  label: 'LinkedIn',  color: '#0A66C2', href: 'https://ma.linkedin.com/in/mohamed-jabri-20209647' },
@@ -79,9 +77,9 @@ const WA_ROW: Record<Lang, string> = {
 
 const PF_STATS: Record<Lang, { num: string; lbl: string }[]> = {
   fr: [
-    { num: '15+',   lbl: "Ans d'exp." },
-    { num: '50+',   lbl: 'Variétés' },
-    { num: '12',    lbl: 'Régions' },
+    { num: '15+',    lbl: "Ans d'exp." },
+    { num: '50+',    lbl: 'Variétés' },
+    { num: '12',     lbl: 'Régions' },
     { num: '1 000+', lbl: 'Agriculteurs' },
   ],
   ar: [
@@ -91,9 +89,9 @@ const PF_STATS: Record<Lang, { num: string; lbl: string }[]> = {
     { num: '+1000', lbl: 'فلاح' },
   ],
   en: [
-    { num: '15+',   lbl: 'Years exp.' },
-    { num: '50+',   lbl: 'Varieties' },
-    { num: '12',    lbl: 'Regions' },
+    { num: '15+',    lbl: 'Years exp.' },
+    { num: '50+',    lbl: 'Varieties' },
+    { num: '12',     lbl: 'Regions' },
     { num: '1 000+', lbl: 'Farmers' },
   ],
 }
@@ -174,7 +172,7 @@ export default function Footer({ lang }: FooterProps) {
       <style>{`
         /* Pre-footer */
         .pf-wrap {
-          background: linear-gradient(135deg, #C9A96E 0%, #D4B47A 45%, #B8935A 100%);
+          background: linear-gradient(135deg, #0D3526 0%, #1B5C48 45%, #145A4C 100%);
           padding: clamp(2rem,5vw,3.5rem) clamp(1.25rem,4vw,3rem);
           position: relative; overflow: hidden;
         }
@@ -185,40 +183,42 @@ export default function Footer({ lang }: FooterProps) {
         }
         .pf-stat-pill {
           display: flex; flex-direction: column; align-items: center;
-          background: rgba(15,45,30,0.09);
-          border: 1px solid rgba(15,45,30,0.16);
+          background: rgba(255,255,255,0.07);
+          border: 1px solid rgba(255,255,255,0.12);
           border-radius: 14px; padding: 10px 16px; min-width: 68px;
           transition: background .2s, transform .2s;
           cursor: default;
         }
-        .pf-stat-pill:hover { background: rgba(15,45,30,0.16); transform: translateY(-2px); }
+        .pf-stat-pill:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
         .pf-btns { display: flex; gap: 10px; flex-wrap: wrap; }
         .pf-btn-outline {
           display: inline-flex; align-items: center; gap: 8px;
-          background: rgba(15,45,30,0.1);
-          border: 2px solid rgba(15,45,30,0.3);
-          color: #0F2D1E; font-weight: 700; font-size: 13px;
+          background: rgba(255,255,255,0.08);
+          border: 2px solid rgba(255,255,255,0.22);
+          color: #fff; font-weight: 700; font-size: 13px;
           padding: 12px 22px; border-radius: 999px;
           text-decoration: none; white-space: nowrap;
           transition: all .22s; min-height: 48px;
         }
-        .pf-btn-outline:hover { background: rgba(15,45,30,0.18); transform: translateY(-2px); }
+        .pf-btn-outline:hover { background: rgba(255,255,255,0.14); border-color: rgba(255,255,255,0.35); transform: translateY(-2px); }
         .pf-btn-solid {
           display: inline-flex; align-items: center; gap: 9px;
-          background: #0F2D1E; color: #fff;
+          background: linear-gradient(135deg, #6BBF4A, #4DA832);
+          color: #0A1F14;
           font-weight: 800; font-size: 14px;
           padding: 12px 26px; border-radius: 999px;
           text-decoration: none; white-space: nowrap;
-          box-shadow: 0 6px 24px rgba(0,0,0,0.28);
+          box-shadow: 0 6px 24px rgba(107,191,74,0.4);
           transition: all .22s; min-height: 48px; position: relative; overflow: hidden;
         }
-        .pf-btn-solid::before {
+        .pf-btn-solid::after {
           content: '';
           position: absolute; inset: 0;
-          background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 50%);
-          pointer-events: none;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+          transform: translateX(-100%); transition: transform .4s ease;
         }
-        .pf-btn-solid:hover { background: #071610; transform: translateY(-2px); box-shadow: 0 14px 34px rgba(0,0,0,0.38); }
+        .pf-btn-solid:hover::after { transform: translateX(100%); }
+        .pf-btn-solid:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(107,191,74,0.55); }
 
         /* Footer grid */
         .footer-cols {
@@ -252,11 +252,11 @@ export default function Footer({ lang }: FooterProps) {
           transition: background .2s, transform .2s;
         }
         .f-link .f-arrow {
-          margin-left: auto; opacity: 0; color: #C9A96E;
+          margin-left: auto; opacity: 0; color: #6BBF4A;
           transition: opacity .2s, transform .2s;
         }
         .f-link:hover { color: #fff; }
-        .f-link:hover .f-dot { background: #C9A96E; transform: scale(1.4); }
+        .f-link:hover .f-dot { background: #6BBF4A; transform: scale(1.4); }
         .f-link:hover .f-arrow { opacity: 1; transform: translateX(3px); }
 
         /* Contact rows */
@@ -268,23 +268,23 @@ export default function Footer({ lang }: FooterProps) {
           cursor: default;
         }
         .c-row.c-link { cursor: pointer; }
-        .c-row.c-link:hover { background: rgba(255,255,255,0.05); }
+        .c-row.c-link:hover { background: rgba(255,255,255,0.04); }
         .c-row.c-link:hover .c-arrow { opacity: 1; transform: translateX(2px); }
         .c-icon-box {
           width: 30px; height: 30px; flex-shrink: 0;
-          background: rgba(201,169,110,0.1);
-          border: 1px solid rgba(201,169,110,0.17);
+          background: rgba(107,191,74,0.09);
+          border: 1px solid rgba(107,191,74,0.18);
           border-radius: 8px;
           display: flex; align-items: center; justify-content: center;
           margin-top: 1px; transition: background .2s, border-color .2s;
         }
         .c-row.c-link:hover .c-icon-box {
-          background: rgba(201,169,110,0.18);
-          border-color: rgba(201,169,110,0.32);
+          background: rgba(107,191,74,0.18);
+          border-color: rgba(107,191,74,0.32);
         }
         .c-arrow {
           margin-left: auto; flex-shrink: 0;
-          color: rgba(201,169,110,0.4); opacity: 0;
+          color: rgba(107,191,74,0.4); opacity: 0;
           transition: opacity .18s, transform .18s;
           align-self: center;
         }
@@ -295,17 +295,20 @@ export default function Footer({ lang }: FooterProps) {
         }
         .eng-check {
           width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
-          background: rgba(201,169,110,0.1);
-          border: 1px solid rgba(201,169,110,0.25);
+          background: rgba(107,191,74,0.1);
+          border: 1px solid rgba(107,191,74,0.25);
           display: flex; align-items: center; justify-content: center;
-          margin-top: 2px; transition: background .2s;
+          margin-top: 2px; transition: background .2s, border-color .2s;
         }
-        .eng-item:hover .eng-check { background: rgba(201,169,110,0.22); }
+        .eng-item:hover .eng-check {
+          background: rgba(107,191,74,0.2);
+          border-color: rgba(107,191,74,0.4);
+        }
 
         /* Newsletter strip */
         .news-strip {
-          border-top: 1px solid rgba(255,255,255,0.055);
-          border-bottom: 1px solid rgba(255,255,255,0.055);
+          border-top: 1px solid rgba(107,191,74,0.1);
+          border-bottom: 1px solid rgba(107,191,74,0.1);
           margin: 2.5rem 0 0;
           padding: 1.5rem 0;
           display: flex; flex-wrap: wrap; align-items: center;
@@ -324,20 +327,20 @@ export default function Footer({ lang }: FooterProps) {
         }
         .news-input::placeholder { color: rgba(255,255,255,0.22); }
         .news-input:focus {
-          border-color: rgba(201,169,110,0.45);
-          background: rgba(255,255,255,0.08);
+          border-color: rgba(107,191,74,0.5);
+          background: rgba(107,191,74,0.05);
         }
         .news-btn {
           display: flex; align-items: center; gap: 7px;
-          background: linear-gradient(135deg, #C9A96E, #B8935A);
-          color: #0F2D1E; font-weight: 800; font-size: 12.5px;
+          background: linear-gradient(135deg, #6BBF4A, #4DA832);
+          color: #0A1F14; font-weight: 800; font-size: 12.5px;
           padding: 11px 18px; border-radius: 10px;
           border: none; cursor: pointer; font-family: inherit;
           white-space: nowrap;
           transition: transform .2s, box-shadow .2s;
-          box-shadow: 0 4px 14px rgba(201,169,110,0.35);
+          box-shadow: 0 4px 14px rgba(107,191,74,0.38);
         }
-        .news-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(201,169,110,0.5); }
+        .news-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(107,191,74,0.52); }
 
         /* Back-to-top */
         .btt {
@@ -349,9 +352,9 @@ export default function Footer({ lang }: FooterProps) {
           transition: all .22s; flex-shrink: 0;
         }
         .btt:hover {
-          background: rgba(201,169,110,0.16);
-          border-color: rgba(201,169,110,0.32);
-          color: #C9A96E; transform: translateY(-3px);
+          background: rgba(107,191,74,0.16);
+          border-color: rgba(107,191,74,0.35);
+          color: #6BBF4A; transform: translateY(-3px);
         }
 
         /* WA contact row */
@@ -384,16 +387,24 @@ export default function Footer({ lang }: FooterProps) {
 
       {/* ── Pre-footer CTA ── */}
       <div className="pf-wrap">
+        {/* Dot grid */}
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px)',
           backgroundSize: '24px 24px',
+        }} />
+        {/* Top glow */}
+        <div style={{
+          position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
+          width: 600, height: 180,
+          background: 'radial-gradient(ellipse, rgba(107,191,74,0.18), transparent 65%)',
+          pointerEvents: 'none',
         }} />
         <div style={{
           position: 'absolute',
           ...(isRTL ? { left: -10 } : { right: -10 }),
           top: '50%', transform: 'translateY(-50%)',
-          opacity: 0.07, pointerEvents: 'none', color: '#0F2D1E',
+          opacity: 0.06, pointerEvents: 'none', color: '#6BBF4A',
         }}>
           <Leaf size={220} strokeWidth={0.5} />
         </div>
@@ -403,32 +414,32 @@ export default function Footer({ lang }: FooterProps) {
           {/* Text + stats */}
           <div style={{ position: 'relative', textAlign: isRTL ? 'right' : 'left' }}>
             <div style={{
-              fontSize: 10, fontWeight: 700, color: 'rgba(15,45,30,0.48)',
+              fontSize: 10, fontWeight: 700, color: 'rgba(107,191,74,0.65)',
               letterSpacing: '0.2em', textTransform: 'uppercase', marginBottom: 10,
               display: 'flex', alignItems: 'center', gap: 6,
               flexDirection: isRTL ? 'row-reverse' : 'row',
             }}>
-              <span style={{ width: 14, height: 1.5, background: 'rgba(15,45,30,0.3)', display: 'inline-block', borderRadius: 99 }} />
+              <span style={{ width: 14, height: 1.5, background: 'rgba(107,191,74,0.5)', display: 'inline-block', borderRadius: 99 }} />
               {pf.sup}
             </div>
             <div style={{
               fontSize: 'clamp(1.2rem,3vw,1.9rem)',
-              fontWeight: 900, color: '#0F2D1E',
+              fontWeight: 900, color: '#fff',
               letterSpacing: '-0.03em', lineHeight: 1.15, maxWidth: 500, marginBottom: 10,
             }}>
               {pf.title}
             </div>
-            <div style={{ fontSize: 12.5, color: 'rgba(15,45,30,0.46)', marginBottom: 18, fontWeight: 500 }}>
+            <div style={{ fontSize: 12.5, color: 'rgba(255,255,255,0.45)', marginBottom: 18, fontWeight: 500 }}>
               {pf.sub}
             </div>
             {/* Mini-stats pills */}
             <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', justifyContent: isRTL ? 'flex-end' : 'flex-start' }}>
               {PF_STATS[lang].map((s, i) => (
                 <div key={i} className="pf-stat-pill">
-                  <span style={{ fontSize: 'clamp(1rem,2vw,1.25rem)', fontWeight: 900, color: '#0F2D1E', letterSpacing: '-0.04em', lineHeight: 1 }}>
+                  <span style={{ fontSize: 'clamp(1rem,2vw,1.25rem)', fontWeight: 900, color: '#6BBF4A', letterSpacing: '-0.04em', lineHeight: 1 }}>
                     {s.num}
                   </span>
-                  <span style={{ fontSize: 9.5, fontWeight: 700, color: 'rgba(15,45,30,0.5)', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: 3 }}>
+                  <span style={{ fontSize: 9.5, fontWeight: 700, color: 'rgba(255,255,255,0.42)', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: 3 }}>
                     {s.lbl}
                   </span>
                 </div>
@@ -457,21 +468,21 @@ export default function Footer({ lang }: FooterProps) {
         {/* Dot grid */}
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
-          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.022) 1px, transparent 1px)',
+          backgroundImage: 'radial-gradient(circle, rgba(107,191,74,0.025) 1px, transparent 1px)',
           backgroundSize: '32px 32px',
         }} />
         {/* Top centre glow */}
         <div style={{
           position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)',
-          width: 700, height: 220,
-          background: 'radial-gradient(ellipse, rgba(201,169,110,0.07), transparent 65%)',
+          width: 700, height: 200,
+          background: 'radial-gradient(ellipse, rgba(107,191,74,0.07), transparent 65%)',
           pointerEvents: 'none',
         }} />
 
-        {/* Gold top line */}
+        {/* Green top line */}
         <div style={{
           height: 1,
-          background: 'linear-gradient(90deg, transparent 0%, rgba(201,169,110,0.4) 30%, rgba(201,169,110,0.4) 70%, transparent 100%)',
+          background: 'linear-gradient(90deg, transparent 0%, rgba(107,191,74,0.45) 30%, rgba(107,191,74,0.45) 70%, transparent 100%)',
         }} />
 
         <div style={{
@@ -507,7 +518,7 @@ export default function Footer({ lang }: FooterProps) {
                 fontWeight: 600, marginBottom: 26,
                 flexDirection: isRTL ? 'row-reverse' : 'row',
               }}>
-                <MapPin size={11} strokeWidth={1.8} style={{ color: 'rgba(201,169,110,0.45)', flexShrink: 0 }} />
+                <MapPin size={11} strokeWidth={1.8} style={{ color: 'rgba(107,191,74,0.5)', flexShrink: 0 }} />
                 <span style={{ textAlign: isRTL ? 'right' : 'left' }}>{LOC[lang]}</span>
               </div>
 
@@ -548,7 +559,7 @@ export default function Footer({ lang }: FooterProps) {
             {/* ── Col 2: Navigation ── */}
             <div>
               <h4 style={{
-                color: '#C9A96E', fontSize: 9.5, fontWeight: 700,
+                color: '#6BBF4A', fontSize: 9.5, fontWeight: 700,
                 letterSpacing: '0.22em', textTransform: 'uppercase',
                 margin: '0 0 22px', textAlign: isRTL ? 'right' : 'left',
               }}>
@@ -572,7 +583,7 @@ export default function Footer({ lang }: FooterProps) {
             {/* ── Col 3: Contact ── */}
             <div>
               <h4 style={{
-                color: '#C9A96E', fontSize: 9.5, fontWeight: 700,
+                color: '#6BBF4A', fontSize: 9.5, fontWeight: 700,
                 letterSpacing: '0.22em', textTransform: 'uppercase',
                 margin: '0 0 18px', textAlign: isRTL ? 'right' : 'left',
               }}>
@@ -592,7 +603,7 @@ export default function Footer({ lang }: FooterProps) {
                       {...extra}
                     >
                       <div className="c-icon-box">
-                        <CIcon size={13} strokeWidth={1.8} style={{ color: '#C9A96E' }} />
+                        <CIcon size={13} strokeWidth={1.8} style={{ color: '#6BBF4A' }} />
                       </div>
                       <div style={{ flex: 1, textAlign: isRTL ? 'right' : 'left' }}>
                         <div style={{
@@ -653,7 +664,7 @@ export default function Footer({ lang }: FooterProps) {
             {/* ── Col 4: Engagements ── */}
             <div>
               <h4 style={{
-                color: '#C9A96E', fontSize: 9.5, fontWeight: 700,
+                color: '#6BBF4A', fontSize: 9.5, fontWeight: 700,
                 letterSpacing: '0.22em', textTransform: 'uppercase',
                 margin: '0 0 22px', textAlign: isRTL ? 'right' : 'left',
               }}>
@@ -663,7 +674,7 @@ export default function Footer({ lang }: FooterProps) {
                 {ENGAGEMENTS[lang].map((text, i) => (
                   <div key={i} className="eng-item" style={{ flexDirection: isRTL ? 'row-reverse' : 'row' }}>
                     <div className="eng-check">
-                      <Check size={9} strokeWidth={3} style={{ color: '#C9A96E' }} />
+                      <Check size={9} strokeWidth={3} style={{ color: '#6BBF4A' }} />
                     </div>
                     <span style={{
                       color: 'rgba(255,255,255,0.38)', fontSize: 12.5,
@@ -695,12 +706,12 @@ export default function Footer({ lang }: FooterProps) {
             {newsSent ? (
               <div style={{
                 display: 'flex', alignItems: 'center', gap: 8,
-                background: 'rgba(34,197,94,0.1)',
-                border: '1px solid rgba(34,197,94,0.22)',
+                background: 'rgba(107,191,74,0.1)',
+                border: '1px solid rgba(107,191,74,0.25)',
                 borderRadius: 10, padding: '10px 20px',
               }}>
-                <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#22C55E' }} />
-                <span style={{ color: '#4ADE80', fontSize: 13, fontWeight: 700 }}>{nws.sent}</span>
+                <div style={{ width: 6, height: 6, borderRadius: '50%', background: '#6BBF4A' }} />
+                <span style={{ color: '#8EDB60', fontSize: 13, fontWeight: 700 }}>{nws.sent}</span>
               </div>
             ) : (
               <form onSubmit={handleNews} className="news-form" style={{ flexDirection: isRTL ? 'row-reverse' : 'row' }}>
