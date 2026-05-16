@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { MapPin, Phone, Mail, Clock, Send, Lock, ChevronDown, ArrowRight } from 'lucide-react'
+import { MapPin, Phone, Mail, Clock, Send, Lock, ChevronDown, ArrowRight, MessageCircle, Building2 } from 'lucide-react'
 import { type Lang, translations } from '../i18n'
 
 interface ContactProps { lang: Lang }
@@ -53,6 +53,7 @@ const RESP_ITEMS: Record<Lang, { label: string; time: string; note: string }[]> 
   ],
 }
 const RESP_COLORS = ['#25D366', '#6BBF4A', '#60BFD8']
+const RESP_ICONS  = [MessageCircle, Mail, Building2]
 
 const REQUEST_TYPES: Record<Lang, string[]> = {
   fr: ['Demande de catalogue', 'Demande de devis', 'Partenariat commercial', 'Information produit', 'Autre demande'],
@@ -126,11 +127,12 @@ export default function Contact({ lang }: ContactProps) {
   const field = (name: string): React.CSSProperties => ({
     width: '100%', boxSizing: 'border-box',
     padding: '13px 16px',
-    border: `1.5px solid ${focused === name ? '#1B4332' : '#E8E5DF'}`,
+    border: `1.5px solid ${focused === name ? '#6BBF4A' : '#E8E5DF'}`,
     borderRadius: 12, fontSize: 14.5,
     color: '#111827',
-    background: focused === name ? 'rgba(27,67,50,0.03)' : '#FAFAF7',
+    background: focused === name ? 'rgba(107,191,74,0.03)' : '#FAFAF7',
     outline: 'none', transition: 'all .2s',
+    boxShadow: focused === name ? '0 0 0 3px rgba(107,191,74,0.12)' : 'none',
     fontFamily: 'inherit',
     textAlign: isRTL ? 'right' : 'left',
     direction: isRTL ? 'rtl' : 'ltr',
@@ -182,22 +184,26 @@ export default function Contact({ lang }: ContactProps) {
         .resp-strip {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 12px;
+          gap: 14px;
           margin-bottom: clamp(2rem,4vw,3rem);
         }
         .resp-card {
           background: #fff;
           border: 1.5px solid #EDEAE4;
-          border-radius: 16px;
-          padding: 16px 18px;
-          text-align: center;
-          transition: border-color .2s, box-shadow .2s, transform .2s;
+          border-radius: 20px;
+          padding: 22px 20px 20px;
+          transition: border-color .25s, box-shadow .25s, transform .25s;
           cursor: default;
+          position: relative; overflow: hidden;
         }
         .resp-card:hover {
-          border-color: rgba(107,191,74,0.28);
-          box-shadow: 0 6px 24px rgba(107,191,74,0.09);
-          transform: translateY(-3px);
+          border-color: rgba(107,191,74,0.3);
+          box-shadow: 0 10px 32px rgba(0,0,0,0.08);
+          transform: translateY(-5px);
+        }
+        .resp-top-bar {
+          position: absolute; top: 0; left: 0; right: 0;
+          height: 3px; border-radius: 20px 20px 0 0;
         }
 
         /* Info rows */
@@ -244,7 +250,7 @@ export default function Contact({ lang }: ContactProps) {
           -webkit-appearance: none; appearance: none;
           cursor: pointer;
         }
-        .form-select:focus { border-color: #1B4332; background: rgba(27,67,50,0.03); }
+        .form-select:focus { border-color: #6BBF4A; background: rgba(107,191,74,0.03); box-shadow: 0 0 0 3px rgba(107,191,74,0.12); }
         .form-select-rtl {
           padding: 13px 16px 13px 42px !important;
           direction: rtl;
@@ -258,6 +264,15 @@ export default function Contact({ lang }: ContactProps) {
         .submit-btn:not(:disabled):hover {
           transform: translateY(-2px);
           box-shadow: 0 18px 44px rgba(107,191,74,0.52) !important;
+        }
+        .submit-btn::after {
+          content: ''; position: absolute; inset: 0;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+          transform: translateX(-100%); pointer-events: none;
+        }
+        .submit-btn:not(:disabled):hover::after {
+          transform: translateX(100%);
+          transition: transform .45s ease;
         }
 
         @media (max-width: 840px) {
@@ -334,32 +349,40 @@ export default function Contact({ lang }: ContactProps) {
 
           {/* ── Response time strip ── */}
           <div className="resp-strip">
-            {RESP_ITEMS[lang].map((r, i) => (
-              <div key={i} className="resp-card">
-                <div style={{
-                  width: 10, height: 10, borderRadius: '50%',
-                  background: RESP_COLORS[i],
-                  boxShadow: `0 0 8px ${RESP_COLORS[i]}80`,
-                  margin: '0 auto 10px',
-                }} />
-                <div style={{
-                  fontSize: 'clamp(1.1rem,2vw,1.5rem)',
-                  fontWeight: 900, color: '#0A1510',
-                  letterSpacing: '-0.04em', lineHeight: 1, marginBottom: 5,
-                }}>
-                  {r.time}
+            {RESP_ITEMS[lang].map((r, i) => {
+              const RespIcon = RESP_ICONS[i]
+              return (
+                <div key={i} className="resp-card">
+                  <div className="resp-top-bar" style={{ background: RESP_COLORS[i] }} />
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 15 }}>
+                    <div style={{
+                      width: 50, height: 50, borderRadius: 15, flexShrink: 0,
+                      background: `${RESP_COLORS[i]}14`,
+                      border: `1.5px solid ${RESP_COLORS[i]}35`,
+                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: RESP_COLORS[i],
+                    }}>
+                      <RespIcon size={22} strokeWidth={1.6} />
+                    </div>
+                    <div>
+                      <div style={{
+                        fontSize: 'clamp(1.35rem,2.4vw,2rem)',
+                        fontWeight: 900, color: '#0A1510',
+                        letterSpacing: '-0.045em', lineHeight: 1, marginBottom: 4,
+                      }}>
+                        {r.time}
+                      </div>
+                      <div style={{ fontSize: 12.5, fontWeight: 700, color: '#374151', marginBottom: 2 }}>
+                        {r.label}
+                      </div>
+                      <div style={{ fontSize: 10.5, color: '#9CA3AF', fontWeight: 500 }}>
+                        {r.note}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div style={{
-                  fontSize: 12, fontWeight: 700, color: '#374151',
-                  marginBottom: 3,
-                }}>
-                  {r.label}
-                </div>
-                <div style={{ fontSize: 10.5, color: '#9CA3AF', fontWeight: 500 }}>
-                  {r.note}
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
           <div className="contact-grid">
