@@ -130,13 +130,14 @@ export default function SeedFeatures({ lang }: SeedFeaturesProps) {
           padding: clamp(1.4rem,2.4vw,2rem);
           overflow: hidden;
           cursor: default;
-          transition: background .26s, transform .26s, border-color .26s, box-shadow .26s;
+          transition: background .3s, transform .38s cubic-bezier(.16,1,.3,1), border-color .3s, box-shadow .3s;
+          will-change: transform;
         }
         .sf-card:hover {
-          background: rgba(255,255,255,0.07);
-          transform: translateY(-6px);
-          border-color: rgba(255,255,255,0.13);
-          box-shadow: 0 24px 56px rgba(0,0,0,0.35);
+          background: rgba(255,255,255,0.075);
+          transform: translateY(-9px) scale(1.012);
+          border-color: rgba(255,255,255,0.16);
+          box-shadow: 0 30px 68px rgba(0,0,0,0.4);
         }
 
         /* Top shimmer line */

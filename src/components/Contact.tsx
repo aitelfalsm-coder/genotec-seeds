@@ -192,14 +192,15 @@ export default function Contact({ lang }: ContactProps) {
           border: 1.5px solid #EDEAE4;
           border-radius: 20px;
           padding: 22px 20px 20px;
-          transition: border-color .25s, box-shadow .25s, transform .25s;
+          transition: border-color .28s, box-shadow .28s, transform .38s cubic-bezier(.16,1,.3,1);
           cursor: default;
           position: relative; overflow: hidden;
+          will-change: transform;
         }
         .resp-card:hover {
-          border-color: rgba(107,191,74,0.3);
-          box-shadow: 0 10px 32px rgba(0,0,0,0.08);
-          transform: translateY(-5px);
+          border-color: rgba(107,191,74,0.35);
+          box-shadow: 0 16px 44px rgba(107,191,74,0.11), 0 4px 14px rgba(0,0,0,0.06);
+          transform: translateY(-7px) scale(1.012);
         }
         .resp-top-bar {
           position: absolute; top: 0; left: 0; right: 0;

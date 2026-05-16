@@ -196,17 +196,25 @@ export default function About({ lang }: AboutProps) {
           border: 1.5px solid #EDEAE4;
           border-radius: 22px;
           padding: clamp(1.8rem,3vw,2.6rem) clamp(1.6rem,3vw,2.4rem) clamp(1.6rem,3vw,2.2rem);
-          transition: transform .3s ease, box-shadow .3s ease;
+          transition: transform .38s cubic-bezier(.16,1,.3,1), box-shadow .38s ease, border-color .3s;
           position: relative; overflow: hidden;
           cursor: default;
+          will-change: transform;
         }
         .val-card:hover {
-          transform: translateY(-8px);
-          box-shadow: 0 28px 64px rgba(0,0,0,0.11);
+          transform: translateY(-11px) scale(1.016);
+          box-shadow: 0 34px 76px rgba(0,0,0,0.12), 0 0 0 1px rgba(107,191,74,0.08);
+          border-color: rgba(107,191,74,0.22);
         }
         .val-top-bar {
           position: absolute; top: 0; left: 0; right: 0;
           height: 4px; border-radius: 22px 22px 0 0;
+        }
+        .val-icon-box {
+          transition: transform .38s cubic-bezier(.16,1,.3,1);
+        }
+        .val-card:hover .val-icon-box {
+          transform: scale(1.14) rotate(-5deg);
         }
 
         .cert-grid {
@@ -217,13 +225,14 @@ export default function About({ lang }: AboutProps) {
         .cert-card {
           padding: 22px 20px; border-radius: 18px;
           background: #fff; border: 1.5px solid #E8E5DF;
-          transition: border-color .2s, box-shadow .2s, transform .22s;
+          transition: border-color .28s, box-shadow .28s, transform .35s cubic-bezier(.16,1,.3,1);
           cursor: default;
+          will-change: transform;
         }
         .cert-card:hover {
-          border-color: rgba(27,67,50,0.22);
-          box-shadow: 0 10px 28px rgba(0,0,0,0.08);
-          transform: translateY(-4px);
+          border-color: rgba(27,67,50,0.28);
+          box-shadow: 0 16px 40px rgba(0,0,0,0.09);
+          transform: translateY(-7px) scale(1.01);
         }
 
         .about-vals-grid {
@@ -535,7 +544,7 @@ export default function About({ lang }: AboutProps) {
                   }}>
                     {String(i + 1).padStart(2, '0')}
                   </div>
-                  <div style={{
+                  <div className="val-icon-box" style={{
                     display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
                     width: 64, height: 64, borderRadius: 18,
                     background: `linear-gradient(135deg, ${VALUE_ACCENTS[i]}1c, ${VALUE_ACCENTS[i]}0a)`,

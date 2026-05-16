@@ -21,12 +21,21 @@ export default function App() {
   useEffect(() => {
     const io = new IntersectionObserver(
       entries => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target) }
+        if (e.isIntersecting) {
+          const el = e.target as HTMLElement
+          el.classList.add('revealed')
+          io.unobserve(el)
+          el.addEventListener('animationend', () => {
+            el.classList.remove('reveal', 'revealed')
+            ;[...el.classList].filter(c => c.startsWith('reveal-d')).forEach(c => el.classList.remove(c))
+            el.style.willChange = 'auto'
+          }, { once: true })
+        }
       }),
       { threshold: 0.08, rootMargin: '0px 0px -48px 0px' }
     )
     const observe = () =>
-      document.querySelectorAll<Element>('.reveal:not(.revealed)').forEach(el => io.observe(el))
+      document.querySelectorAll<HTMLElement>('.reveal:not(.revealed)').forEach(el => io.observe(el))
     observe()
     const mo = new MutationObserver(observe)
     mo.observe(document.body, { childList: true, subtree: true })
