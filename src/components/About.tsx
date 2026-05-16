@@ -299,7 +299,7 @@ export default function About({ lang }: AboutProps) {
         <div style={{ position: 'relative', maxWidth: 1140, margin: '0 auto', padding: '0 1.5rem' }}>
 
           {/* ── Header ── */}
-          <div className="about-section-header" style={{ textAlign: 'center', marginBottom: 'clamp(3rem,7vw,6.5rem)' }}>
+          <div className="about-section-header reveal" style={{ textAlign: 'center', marginBottom: 'clamp(3rem,7vw,6.5rem)' }}>
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: 9,
               color: '#1B4332', fontSize: 10, fontWeight: 700,
@@ -332,7 +332,7 @@ export default function About({ lang }: AboutProps) {
           </div>
 
           {/* ── Story ── */}
-          <div className="about-story-cols">
+          <div className="about-story-cols reveal">
 
             {/* Photos */}
             <div className="about-photo-col" style={{ position: 'relative', paddingBottom: '3rem', order: isRTL ? 1 : 0 }}>
@@ -524,7 +524,7 @@ export default function About({ lang }: AboutProps) {
             {t.values.map((v, i) => {
               const ValIcon = VALUE_ICONS[i]
               return (
-                <div key={i} className="val-card">
+                <div key={i} className={`val-card reveal-d${i + 1} reveal`}>
                   <div className="val-top-bar" style={{ background: VALUE_ACCENTS[i] }} />
                   <div style={{
                     position: 'absolute', top: 14, right: 18,
@@ -581,7 +581,7 @@ export default function About({ lang }: AboutProps) {
               {CERTS_DATA[lang].map((c, i) => {
                 const CertIcon = CERT_ICONS[i]
                 return (
-                  <div key={i} className="cert-card">
+                  <div key={i} className={`cert-card reveal-d${i + 1} reveal`}>
                     <div style={{
                       width: 48, height: 48, borderRadius: 14,
                       background: 'linear-gradient(135deg, #0F2D1E, #1B4332)',

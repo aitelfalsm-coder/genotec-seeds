@@ -246,6 +246,7 @@ export default function Hero({ lang }: HeroProps) {
             background: 'radial-gradient(ellipse at 15% 95%, rgba(27,107,92,0.14) 0%, transparent 65%)',
             animation: 'glowOrb 4s ease-in-out 1.5s infinite',
           }} />
+          <div className="grain" />
           <div className="hero-deco-circle" style={{
             position: 'absolute', top: '-22%', right: '-9%',
             width: 700, height: 700, borderRadius: '50%',
@@ -314,6 +315,7 @@ export default function Hero({ lang }: HeroProps) {
               <p style={{
                 fontSize: 'clamp(1.5rem, 3.5vw, 3.1rem)',
                 fontWeight: 700, fontStyle: 'italic',
+                fontFamily: "'Fraunces', Georgia, serif",
                 color: '#8EDB60',
                 letterSpacing: '-0.01em',
                 lineHeight: 1.1,

@@ -18,6 +18,21 @@ export default function App() {
     document.documentElement.setAttribute('lang', lang)
   }, [lang])
 
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target) }
+      }),
+      { threshold: 0.08, rootMargin: '0px 0px -48px 0px' }
+    )
+    const observe = () =>
+      document.querySelectorAll<Element>('.reveal:not(.revealed)').forEach(el => io.observe(el))
+    observe()
+    const mo = new MutationObserver(observe)
+    mo.observe(document.body, { childList: true, subtree: true })
+    return () => { io.disconnect(); mo.disconnect() }
+  }, [])
+
   return (
     <>
       <Navbar lang={lang} setLang={setLang} />

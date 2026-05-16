@@ -97,7 +97,7 @@ export default function SeedFeatures({ lang }: SeedFeaturesProps) {
         .sf-blob-tl {
           position: absolute; top: -15%; left: -8%;
           width: 520px; height: 520px; border-radius: 50%;
-          background: radial-gradient(circle, rgba(201,169,110,0.09) 0%, transparent 65%);
+          background: radial-gradient(circle, rgba(107,191,74,0.08) 0%, transparent 65%);
           pointer-events: none;
         }
         .sf-blob-br {
@@ -184,11 +184,11 @@ export default function SeedFeatures({ lang }: SeedFeaturesProps) {
         }
         .sf-cta-btn {
           display: inline-flex; align-items: center; gap: 10px;
-          background: linear-gradient(135deg, #C9A96E, #B8935A);
+          background: linear-gradient(135deg, #6BBF4A, #4DA832);
           color: #071610; font-weight: 900; font-size: 14px;
           padding: 15px 32px; border-radius: 999px;
           text-decoration: none;
-          box-shadow: 0 8px 32px rgba(201,169,110,0.4), 0 2px 8px rgba(0,0,0,0.3);
+          box-shadow: 0 8px 32px rgba(107,191,74,0.42), 0 2px 8px rgba(0,0,0,0.3);
           transition: transform .22s, box-shadow .22s;
           letter-spacing: 0.01em;
           position: relative; overflow: hidden;
@@ -199,10 +199,13 @@ export default function SeedFeatures({ lang }: SeedFeaturesProps) {
           background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
           pointer-events: none;
         }
-        .sf-cta-btn:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 16px 44px rgba(201,169,110,0.58), 0 4px 12px rgba(0,0,0,0.3);
+        .sf-cta-btn::after {
+          content: ''; position: absolute; inset: 0;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+          transform: translateX(-100%); pointer-events: none;
         }
+        .sf-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 16px 44px rgba(107,191,74,0.58), 0 4px 12px rgba(0,0,0,0.3); }
+        .sf-cta-btn:hover::after { transform: translateX(100%); transition: transform .45s ease; }
         .sf-cta-sub {
           font-size: 11px; color: rgba(255,255,255,0.28);
           font-weight: 500; letter-spacing: 0.04em;
@@ -238,7 +241,7 @@ export default function SeedFeatures({ lang }: SeedFeaturesProps) {
         <div style={{ position: 'relative', maxWidth: 1140, margin: '0 auto' }}>
 
           {/* ── Header ── */}
-          <div style={{ textAlign: 'center', marginBottom: 'clamp(3rem,6vw,5rem)' }}>
+          <div className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(3rem,6vw,5rem)' }}>
 
             {/* Lab icon */}
             <div className="sf-lab-row">
@@ -308,7 +311,7 @@ export default function SeedFeatures({ lang }: SeedFeaturesProps) {
               const isRtlCard = isRTL
 
               return (
-                <div key={i} className="sf-card">
+                <div key={i} className={`sf-card reveal reveal-d${(i % 3) + 1}`}>
                   {/* Shine line on hover */}
                   <div
                     className="sf-card-shine"

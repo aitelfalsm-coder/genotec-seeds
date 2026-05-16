@@ -315,7 +315,7 @@ export default function Contact({ lang }: ContactProps) {
         <div style={{ position: 'relative', maxWidth: 1140, margin: '0 auto', padding: '0 1.25rem' }}>
 
           {/* ── Header ── */}
-          <div style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem,5vw,4rem)' }}>
+          <div className="reveal" style={{ textAlign: 'center', marginBottom: 'clamp(2.5rem,5vw,4rem)' }}>
             <div style={{
               display: 'inline-flex', alignItems: 'center', gap: 10,
               color: '#1B4332', fontSize: 10, fontWeight: 700,
@@ -385,7 +385,7 @@ export default function Contact({ lang }: ContactProps) {
             })}
           </div>
 
-          <div className="contact-grid">
+          <div className="contact-grid reveal">
 
             {/* ──── Left: info panel ──── */}
             <div style={{
