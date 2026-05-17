@@ -260,34 +260,6 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
             {/* ── Right controls ── */}
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
 
-              {/* Language switcher */}
-              <div style={{
-                display: 'flex', alignItems: 'center', gap: 2,
-                background: light ? '#F3F4F6' : 'rgba(255,255,255,0.1)',
-                border: `1px solid ${light ? '#E5E7EB' : 'rgba(255,255,255,0.14)'}`,
-                borderRadius: 999, padding: '3px',
-                transition: 'all .38s', flexShrink: 0,
-              }}>
-                {LANGS.map(l => (
-                  <button
-                    key={l.code}
-                    onClick={() => setLang(l.code)}
-                    title={l.label}
-                    className="lang-btn"
-                    style={{
-                      background: lang === l.code
-                        ? 'linear-gradient(135deg, #0F2D1E, #1B4332)'
-                        : 'transparent',
-                      color: lang === l.code
-                        ? '#fff'
-                        : (light ? '#6B7280' : 'rgba(255,255,255,0.52)'),
-                      boxShadow: lang === l.code ? '0 2px 8px rgba(27,67,50,0.4)' : 'none',
-                    }}
-                  >
-                    {l.flag} {l.label}
-                  </button>
-                ))}
-              </div>
 
               {/* CTA */}
               <a
@@ -397,30 +369,6 @@ export default function Navbar({ lang, setLang }: NavbarProps) {
 
             <div style={{ height: 1, background: '#F0EDE8', margin: '10px 4px 12px' }} />
 
-            {/* Language row in mobile */}
-            <div style={{ display: 'flex', gap: 6, marginBottom: 10 }}>
-              {LANGS.map(l => (
-                <button
-                  key={l.code}
-                  onClick={() => setLang(l.code)}
-                  style={{
-                    flex: 1, padding: '9px 4px',
-                    background: lang === l.code
-                      ? 'linear-gradient(135deg, #0F2D1E, #1B4332)'
-                      : '#F3F4F6',
-                    color: lang === l.code ? '#fff' : '#6B7280',
-                    border: lang === l.code ? 'none' : '1px solid #E5E7EB',
-                    borderRadius: 9, fontSize: 12, fontWeight: 700,
-                    cursor: 'pointer', fontFamily: 'inherit',
-                    display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 5,
-                    boxShadow: lang === l.code ? '0 2px 8px rgba(27,67,50,0.3)' : 'none',
-                    transition: 'all .2s',
-                  }}
-                >
-                  {l.flag} {l.label}
-                </button>
-              ))}
-            </div>
 
             <a
               href="#contact"
