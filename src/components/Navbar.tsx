@@ -9,7 +9,6 @@ interface NavbarProps {
 
 const LANGS: { code: Lang; flag: string; label: string }[] = [
   { code: 'fr', flag: '🇫🇷', label: 'FR' },
-  { code: 'en', flag: '🇬🇧', label: 'EN' },
 ]
 
 const SECTION_IDS = ['accueil', 'produits', 'apropos', 'contact']
